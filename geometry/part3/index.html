@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 3 (ตอนที่ 3): จุดสำคัญในรูปสามเหลี่ยม - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 3 (ตอนที่ 3)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📍 เรขาคณิต (ตอนที่ 3)<br><span>จุดสำคัญในรูปสามเหลี่ยม (Triangle Centers)</span></h1>
+      <p>เจาะลึกสมบัติลับของ Centroid, Incenter, Circumcenter และ Orthocenter ฉบับเตรียมสอบ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: สรุป 4 จุดสำคัญในรูปสามเหลี่ยม -->
+    <section class="lesson-card">
+      <h2>1. รู้จัก 4 จุดสำคัญในรูปสามเหลี่ยม</h2>
+      <p>การจำแนกเส้นสำคัญและสมบัติของจุดตัดทั้ง 4 ในรูปสามเหลี่ยม มีรายละเอียดและสูตรลัดที่ต้องแม่นยำดังนี้:</p>
+
+      <div class="formula-box">
+        $$ \text{Centroid (เซนทรอยด์ - G): แบ่งเส้นมัธยฐานเป็นอัตราส่วน } 2:1 \text{ จากจุดยอด} $$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องจุดสำคัญในรูปสามเหลี่ยม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: จุดสำคัญของรูปสามเหลี่ยม (Orthocenter, Centroid, Circumcenter, Incenter)</strong>
+          <p>ทบทวนสมบัติเชิงลึกและการนำไปใช้ทำโจทย์แข่งขัน</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=blMHiPxtQM4" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวจุดสำคัญ
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ Incenter (จุดศูนย์กลางวงกลมแนบใน - I):</strong>
+          <ul>
+            <li>เกิดจากเส้นแบ่งครึ่งมุมทั้งสามตัดกัน</li>
+            <li>รัศมีวงกลมแนบใน \( r = \frac{\text{พื้นที่ } \triangle}{\text{S}} \) (เมื่อ \( S \) คือ Semi-perimeter)
+            </li>
+          </ul>
+        </div>
+        <div class="ex-item good">
+          <strong>✅ Circumcenter (จุดศูนย์กลางวงกลมล้อมรอบ - O):</strong>
+          <ul>
+            <li>เกิดจากเส้นตั้งฉากแบ่งครึ่งด้านตัดกัน</li>
+            <li>รัศมีวงกลมล้อมรอบ \( R = \frac{abc}{4 \times \text{พื้นที่ } \triangle} \)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณพิกัด Centroid -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณจุดเซนทรอยด์ (Centroid Calculator)</h2>
+      <p>เมื่อกำหนดพิกัดจุดยอดทั้งสาม \( A(x_1, y_1), B(x_2, y_2), C(x_3, y_3) \) ของรูปสามเหลี่ยม
+        ระบบจะคำนวณพิกัดจุดเซนทรอยด์ \( G(x, y) \) ให้ทันที:</p>
+
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="x1" value="0" placeholder="x1">
+          <input type="number" id="y1" value="0" placeholder="y1">
+          <input type="number" id="x2" value="6" placeholder="x2">
+          <input type="number" id="y2" value="0" placeholder="y2">
+          <input type="number" id="x3" value="3" placeholder="x3">
+          <input type="number" id="y3" value="6" placeholder="y3">
+          <button onclick="runCentroidCalc()">คำนวณจุด Centroid</button>
+        </div>
+        <div id="triangle-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • สมบัติจุดเซนทรอยด์</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">กำหนดให้ \( G \) เป็นจุดเซนทรอยด์ของรูปสามเหลี่ยม \( \triangle ABC \) และเส้นมัธยฐาน \( AD
+          \) ยาว \( 12 \) หน่วย จงหาความยาวของส่วนของเส้นตรง \( AG \) และ \( GD \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>จากสมบัติของจุดเซนทรอยด์ จะแบ่งเส้นมัธยฐานออกเป็นอัตราส่วน \( AG : GD = 2 : 1 \) จากจุดยอด</li>
+            <li>แบ่งความยาวเส้นมัธยฐานทั้งหมด (\( AD = 12 \)) ออกเป็น \( 2 + 1 = 3 \) ส่วนเท่าๆ กัน:
+              <br>\( \text{ความยาวต่อ 1 ส่วน} = \frac{12}{3} = 4 \) หน่วย
+            </li>
+            <li>ความยาวของ \( AG \) (2 ส่วน): \( 2 \times 4 = \mathbf{8} \) หน่วย</li>
+            <li>ความยาวของ \( GD \) (1 ส่วน): \( 1 \times 4 = \mathbf{4} \) หน่วย</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • ความสัมพันธ์ Incenter และมุม</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">ในรูปสามเหลี่ยม \( \triangle ABC \) มีจุด \( I \) เป็นจุดเซนทรอยด์วงกลมแนบใน (Incenter)
+          ถ้ามุม \( \hat{B} = 50^\circ \) และมุม \( \hat{C} = 70^\circ \) จงหาขนาดของมุม \( \widehat{BIC} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>จุด \( I \) เกิดจากเส้นแบ่งครึ่งมุมทั้งสามตัดกัน ดังนั้นมุม \( \widehat{IBC} = \frac{1}{2}\hat{B} \)
+              และมุม \( \widehat{ICB} = \frac{1}{2}\hat{C} \)</li>
+            <li>คำนวณขนาดมุมครึ่งหนึ่ง:
+              <br>\( \widehat{IBC} = \frac{50^\circ}{2} = 25^\circ \) และ \( \widehat{ICB} = \frac{70^\circ}{2} =
+              35^\circ \)
+            </li>
+            <li>พิจารณารูปสามเหลี่ยม \( \triangle BIC \) ผลรวมมุมภายในเท่ากับ \( 180^\circ \):
+              <br>\( \widehat{BIC} = 180^\circ - (25^\circ + 35^\circ) = 180^\circ - 60^\circ = \mathbf{120^\circ} \)
+            </li>
+            <li><strong>สูตรลัดจำง่าย:</strong> มุมที่เกิดจาก Incenter คือ \( \widehat{BIC} = 90^\circ +
+              \frac{\hat{A}}{2} \) (โดย \( \hat{A} = 180 - 50 - 70 = 60^\circ \) จะได้ \( 90 + 30 = 120^\circ \) พอดี)
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>พิกัดจุดยอดของรูปสามเหลี่ยมคือ \( A(1, 2) \), \( B(4, 6) \) และ \( C(7, 4) \) พิกัดของจุดเซนทรอยด์ \( G \)
+        คือข้อใด?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">(3, 3)</button>
+        <button onclick="checkQuiz(this, true)">(4, 4)</button>
+        <button onclick="checkQuiz(this, false)">(5, 4)</button>
+        <button onclick="checkQuiz(this, false)">(4, 5)</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

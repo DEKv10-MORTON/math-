@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คอมบิเนททอริก (ตอนที่ 1): หลักการนับเบื้องต้น - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • คอมบิเนททอริก ตอนที่ 1</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>🧮 คอมบิเนททอริก (ตอนที่ 1)<br><span>หลักการนับเบื้องต้น (Counting Principles)</span></h1>
+      <p>สรุป 5 รูปแบบการนับหลัก การเรียงสับเปลี่ยน และการจัดหมู่เพื่อเตรียมพร้อมพิชิตโจทย์ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: หลักการบวกและหลักการคูณ -->
+    <section class="lesson-card">
+      <h2>1. หลักการบวก (Addition Principle) และหลักการคูณ (Multiplication Principle)</h2>
+      <p>ก่อนลุยโจทย์ระดับยาก สิ่งแรกที่ต้องแยกให้ออกคือสถานการณ์ของโจทย์ว่าสอดคล้องกับหลักการใด:</p>
+
+      <div class="formula-box">
+        $$\text{หลักการบวก: เหตุการณ์เลือกทำอย่างใดอย่างหนึ่ง (จบในตัว) ➔ เอาจำนวนวิธีมาบวกกัน}$$
+        $$\text{หลักการคูณ: เหตุการณ์ทำต่อเนื่องกันหลายขั้นตอนจนเสร็จ ➔ เอาจำนวนวิธีมาคูณกัน}$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: สรุปหลักการนับเบื้องต้น ม.5 (บวก คูณ เรียงสับเปลี่ยน จัดหมู่)</strong>
+          <p>ทบทวนแนวคิดและสูตรพื้นฐานแบบเข้าใจง่าย (โดยช่อง TUENONG)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=SfdWieJiVIE" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวหลักการนับ
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ 3 คีย์เวิร์ดสำคัญในการวิเคราะห์โจทย์:</strong>
+          <ul>
+            <li><strong>กรณี (Case):</strong> เหตุการณ์ที่จบในตัว เลือกทำอย่างใดอย่างหนึ่ง</li>
+            <li><strong>ขั้นตอน (Step):</strong> สิ่งที่ต้องทำเพื่อให้งานเสร็จสมบูรณ์</li>
+            <li><strong>วิธี (Way):</strong> จำนวนทางเลือกที่เป็นไปได้ในแต่ละขั้นตอน</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 แฟกทอเรียล (Factorial):</strong>
+          <ul>
+            <li>สัญลักษณ์ \(n!\) คือผลคูณของจำนวนเต็มบวกตั้งแต่ \(1\) ถึง \(n\)</li>
+            <li>เช่น \(3! = 3 \times 2 \times 1 = 6\)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณ Permutation & Combination -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณสูตร P(n,r) และ C(n,r)</h2>
+      <p>เลือกโหมดแล้วใส่ค่า \(n\) (ของทั้งหมด) และ \(r\) (ของที่เลือก) ระบบจะคำนวณจำนวนวิธีให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <select id="calcType">
+            <option value="perm">การเรียงสับเปลี่ยน P(n,r)</option>
+            <option value="comb">การจัดหมู่ C(n,r)</option>
+          </select>
+          <input type="number" id="inputN" value="10" placeholder="ค่า n (ทั้งหมด)">
+          <input type="number" id="inputR" value="4" placeholder="ค่า r (ที่เลือก)">
+          <button onclick="runCountingCalc()">คำนวณผลลัพธ์</button>
+        </div>
+        <div id="counting-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • รหัส ATM</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">รหัสบัตร ATM ประกอบด้วยตัวเลขโดด \(4\) ตัว จงหาจำนวนรหัสที่แตกต่างกันทั้งหมด โดยที่ <strong>ไม่อนุญาตให้ใช้เลขโดดซ้ำกัน</strong></p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>ข้อนี้เป็นการเลือกตัวเลข \(4\) ตำแหน่งจากตัวเลขทั้งหมด \(10\) ตัว (\(0\) ถึง \(9\)) โดยคำนึงถึงลำดับและห้ามใช้ซ้ำ ซึ่งตรงกับสูตรการเรียงสับเปลี่ยน \(P(n, r)\)</li>
+            <li>กำหนดให้ \(n = 10\) และ \(r = 4\) แทนค่าลงในสูตร \(P(n, r) = \frac{n!}{(n-r)!}\):
+              <br>\(P(10, 4) = \frac{10!}{(10-4)!} = \frac{10!}{6!}\)
+            </li>
+            <li>กระจายตัวแฟกทอเรียลและตัดทอน:
+              <br>\(\frac{10 \times 9 \times 8 \times 7 \times 6!}{6!} = 10 \times 9 \times 8 \times 7\)
+            </li>
+            <li>คำนวณผลลัพธ์:
+              <br>\(10 \times 9 \times 8 \times 7 = \mathbf{5,040}\) รหัส
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • การจัดหมู่และเลือกหัวหน้า</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">นักเรียนห้องหนึ่งมี \(24\) คน ต้องการเลือกตัวแทนนักเรียน \(4\) คนเพื่อเป็นคณะกรรมการห้อง โดยใน \(4\) คนนี้ต้องมี \(1\) คนดำรงตำแหน่งเป็นหัวหน้าห้อง จะมีวิธีเลือกกี่วิธี</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>แบ่งงานออกเป็น 2 ขั้นตอนตามหลักการคูณ:
+              <br>• <strong>ขั้นตอนที่ 1:</strong> เลือกนักเรียน \(4\) คนจากทั้งหมด \(24\) คนเข้าคณะกรรมการ (ไม่สนใจลำดับ ใช้การจัดหมู่ \(C(24, 4)\))
+              <br>• <strong>ขั้นตอนที่ 2:</strong> เลือกหัวหน้าห้อง \(1\) คนจากตัวแทน \(4\) คนที่เลือกมา (\(C(4, 1)\))
+            </li>
+            <li>คำนวณทีละส่วนตามสูตร \(C(n, r) = \frac{n!}{(n-r)!r!}\):
+              <br>• \(C(24, 4) = \frac{24!}{20!4!} = 10,626\) วิธี
+              <br>• \(C(4, 1) = \frac{4!}{3!1!} = 4\) วิธี
+            </li>
+            <li>นำจำนวนวิธีทั้งสองขั้นตอนมาคูณกัน:
+              <br>\(10,626 \times 4 = \mathbf{42,504}\) วิธี
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>มีหนังสือที่แตกต่างกัน \(5\) เล่ม ต้องการเลือกหยิบมาอ่านทีละ \(2\) เล่มโดยจัดเรียงลำดับก่อนหลัง จะทำได้ทั้งหมดกี่วิธี?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">10 วิธี</button>
+        <button onclick="checkQuiz(this, true)">20 วิธี</button>
+        <button onclick="checkQuiz(this, false)">60 วิธี</button>
+        <button onclick="checkQuiz(this, false)">120 วิธี</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

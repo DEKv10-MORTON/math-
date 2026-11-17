@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 3 (ตอนที่ 4): เรขาคณิตวิเคราะห์เบื้องต้น - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 3 (ตอนที่ 4)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📈 เรขาคณิต (ตอนที่ 4)<br><span>เรขาคณิตวิเคราะห์เบื้องต้น (Coordinate Geometry)</span></h1>
+      <p>พิชิตสูตรระยะทาง จุดกึ่งกลาง ความชัน และระยะห่างเส้นตรง ฉบับเซียนเตรียมสอบ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: สูตรพื้นฐานเรขาคณิตวิเคราะห์ -->
+    <section class="lesson-card">
+      <h2>1. อาวุธหลักในระบบพิกัดฉาก</h2>
+      <p>การแก้ปัญหาเรขาคณิตด้วยพิกัดฉากช่วยให้เราแปลงรูปทรงเรขาคณิตให้อยู่ในรูปสมการพีชคณิต โดยมีสูตรสำคัญที่ต้องท่องจำและใช้งานให้คล่อง:</p>
+
+      <div class="formula-box">
+        $$\text{ความชัน (Slope): } m = \frac{y_2 - y_1}{x_2 - x_1} \quad \text{และสมการเส้นตรง: } y - y_1 = m(x - x_1)$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องเรขาคณิตวิเคราะห์ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: สมการเส้นตรงและความชันจาก 0 จนเซียน</strong>
+          <p>ทบทวนเทคนิคการหาความชันและสร้างสมการเส้นตรงอย่างรวดเร็ว (โดยช่อง Mr.Phoops)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=zsUj4cwgAxU" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวเส้นตรง
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ เส้นขนานและเส้นตั้งฉาก:</strong>
+          <ul>
+            <li>เส้นขนานกัน: ความชันเท่ากัน (\(m_1 = m_2\))</li>
+            <li>เส้นตั้งฉากกัน: ความชันคูณกันได้ \(-1\) (\(m_1 \cdot m_2 = -1\))</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 ระยะห่างจากจุดไปยังเส้นตรง:</strong>
+          <ul>
+            <li>ระยะห่างสั้นที่สุดจากจุด \((x_0, y_0)\) ไปยังเส้นตรง \(Ax + By + C = 0\) คือ:
+              <br>\(d = \frac{\vert{}Ax_0 + By_0 + C\vert{}}{\sqrt{A^2 + B^2}}\)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณระยะทางและความชัน -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณระยะทางและความชันระหว่างสองจุด</h2>
+      <p>เมื่อกำหนดพิกัดจุด \(A(x_1, y_1)\) และ \(B(x_2, y_2)\) ระบบจะคำนวณระยะห่าง จุดกึ่งกลาง และความชันให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="x1" value="1" placeholder="x1">
+          <input type="number" id="y1" value="2" placeholder="y1">
+          <input type="number" id="x2" value="4" placeholder="x2">
+          <input type="number" id="y2" value="6" placeholder="y2">
+          <button onclick="runCoordCalc()">คำนวณเรขาคณิตวิเคราะห์</button>
+        </div>
+        <div id="coord-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ระยะทางและจุดกึ่งกลาง</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">กำหนดให้จุด \(A(-2, 3)\) และ \(B(4, -5)\) เป็นจุดปลายของเส้นผ่านศูนย์กลางของวงกลมวงหนึ่ง จงหารัศมีของวงกลมนี้</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>เส้นผ่านศูนย์กลางของวงกลมคือระยะห่างระหว่างจุด \(A\) และ \(B\)</li>
+            <li>คำนวณระยะทาง \(d\) ระหว่าง \((-2, 3)\) กับ \((4, -5)\):
+              <br>\(d = \sqrt{(4 - (-2))^2 + (-5 - 3)^2}\)
+              <br>\(d = \sqrt{6^2 + (-8)^2} = \sqrt{36 + 64} = \sqrt{100} = 10\) หน่วย
+            </li>
+            <li>เนื่องจากรัศมี (\(r\)) เท่ากับครึ่งหนึ่งของเส้นผ่านศูนย์กลาง:
+              <br>\(r = \frac{10}{2} = \mathbf{5}\) หน่วย
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • ระยะห่างระหว่างจุดกับเส้นตรง</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาระยะห่างที่สั้นที่สุดจากจุด \(P(2, -1)\)ไปยังเส้นตรงที่ผ่านจุด \(A(1, 2)\) และ \(B(4, 6)\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>หาความชันของเส้นตรงผ่าน \(A(1, 2)\) และ \(B(4, 6)\):
+              <br>\(m = \frac{6 - 2}{4 - 1} = \frac{4}{3}\)
+            </li>
+            <li>หาสมการเส้นตรงผ่านจุด \(A(1, 2)\) ด้วยรูปทั่วไป \(Ax + By + C = 0\):
+              <br>\(y - 2 = \frac{4}{3}(x - 1) \implies 3(y - 2) = 4(x - 1)\)
+              <br>\(3y - 6 = 4x - 4 \implies 4x - 3y + 2 = 0\) (จะได้ \(A = 4, B = -3, C = 2\))
+            </li>
+            <li>ใช้สูตรหาระยะห่างจากจุด \(P(2, -1)\) ไปยังเส้นตรง \(4x - 3y + 2 = 0\):
+              <br>\(d = \frac{\vert{}4(2) - 3(-1) + 2\vert{}}{\sqrt{4^2 + (-3)^2}}\)
+              <br>\(d = \frac{\vert{}8 + 3 + 2\vert{}}{\sqrt{16 + 9}} = \frac{\vert{}13\vert{}}{\sqrt{25}} = \frac{13}{5} = \mathbf{2.6}\) หน่วย
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>เส้นตรงเส้นหนึ่งผ่านจุด \((2, 3)\) และตั้งฉากกับเส้นตรงที่มีความชันเท่ากับ \(-\frac{2}{3}\) จงหาความชันของเส้นตรงเส้นนี้</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">\(-\frac{3}{2}\)</button>
+        <button onclick="checkQuiz(this, false)">\(-\frac{2}{3}\)</button>
+        <button onclick="checkQuiz(this, true)">\(\frac{3}{2}\)</button>
+        <button onclick="checkQuiz(this, false)">\(\frac{2}{3}\)</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

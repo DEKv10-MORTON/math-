@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 2 (ตอนที่ 2): สมการและระบบสมการพหุนาม - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 2 (ตอนที่ 2)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>⚡ พีชคณิต (ตอนที่ 2)<br><span>สมการและระบบสมการพหุนาม</span></h1>
+      <p>เจาะลึกสูตรลับของเวียด (Vieta's Formulas) และเทคนิคแก้ระบบสมการดีกรีสูงฉบับเซียน สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ความสัมพันธ์ระหว่างรากและสัมประสิทธิ์ (Vieta's Formulas) -->
+    <section class="lesson-card">
+      <h2>1. สูตรของเวียด (Vieta's Formulas)</h2>
+      <p>ถ้าพหุนามดีกรีสองคือ \( ax^2 + bx + c = 0 \) มีราก (คำตอบ) เป็น \( r_1 \) และ \( r_2 \) เราจะได้ความสัมพันธ์ที่ทรงพลังดังนี้:</p>
+
+      <div class="formula-box">
+        $$r_1 + r_2 = -\frac{b}{a} \quad \text{และ} \quad r_1 r_2 = \frac{c}{a}$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องสูตรของเวียด -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ความลับ สูตรของ Viete แค่มองโจทย์ก็ตอบได้เลย!</strong>
+          <p>เทคนิคการใช้สูตรของเวียดมองโจทย์พหุนามดีกรีสูง (โดยช่อง P'Thames)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=wMEuIusL2EE" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวสูตรเวียด
+        </a>
+      </div>
+
+      <p style="margin-top: 14px;">และสำหรับพหุนามดีกรีสาม \( ax^3 + bx^2 + cx + d = 0 \) ที่มีรากเป็น \( r_1, r_2, r_3 \):</p>
+      
+      <div class="property-list" style="margin-top: 10px;">
+        <div class="prop-item">• ผลบวกราก: \( r_1 + r_2 + r_3 = -\frac{b}{a} \)</div>
+        <div class="prop-item">• ผลบวกผลคูณทีละสองตัว: \( r_1r_2 + r_2r_3 + r_3r_1 = \frac{c}{a} \)</div>
+        <div class="prop-item">• ผลคูณรากทั้งหมด: \( r_1 r_2 r_3 = -\frac{d}{a} \)</div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณสูตรของเวียด -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณผลบวกและผลคูณราก (ดีกรีสอง)</h2>
+      <p>ลองใส่สัมประสิทธิ์ \( a, b, c \) ของสมการกำลังสอง \( ax^2 + bx + c = 0 \) แล้วระบบจะคำนวณผลบวกและผลคูณของรากให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="eqA" value="2" placeholder="สัมประสิทธิ์ a">
+          <input type="number" id="eqB" value="-8" placeholder="สัมประสิทธิ์ b">
+          <input type="number" id="eqC" value="6" placeholder="ค่าคงที่ c">
+          <button onclick="runVietaCalc()">คำนวณสูตรเวียด</button>
+        </div>
+        <div id="vieta-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ประยุกต์สูตรเวียด</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">กำหนดให้ \( r_1 \) และ \( r_2 \) เป็นรากของสมการ \( 3x^2 - 12x + 5 = 0 \) จงหาค่าของ \( \frac{1}{r_1} + \frac{1}{r_2} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>จากสมการ \( 3x^2 - 12x + 5 = 0 \) จะได้ \( a = 3, b = -12, c = 5 \)</li>
+            <li>จากสูตรของเวียด:
+              <br>• ผลบวกราก: \( r_1 + r_2 = -\frac{-12}{3} = 4 \)
+              <br>• ผลคูณราก: \( r_1 r_2 = \frac{5}{3} \)
+            </li>
+            <li>จัดรูปสิ่งที่เราต้องการหา:
+              <br>\( \frac{1}{r_1} + \frac{1}{r_2} = \frac{r_1 + r_2}{r_1 r_2} \)
+            </li>
+            <li>แทนค่าตัวเลขลงไป:
+              <br>\( \frac{4}{\frac{5}{3}} = 4 \times \frac{3}{5} = \mathbf{\frac{12}{5}} \)
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • ระบบสมการไม่เชิงเส้น</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาค่าของ \( x + y \) ทั้งหมดที่สอดคล้องกับระบบสมการ: <br>\( x + y = 5 \) และ \( x^2 + y^2 = 13 \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>จากเอกลักษณ์กำลังสองสมบูรณ์: \( (x + y)^2 = x^2 + 2xy + y^2 \)</li>
+            <li>จัดรูปใหม่เพื่อหาค่า \( xy \):
+              <br>\( 2xy = (x + y)^2 - (x^2 + y^2) \)
+            </li>
+            <li>แทนค่า \( x + y = 5 \) และ \( x^2 + y^2 = 13 \) ลงไป:
+              <br>\( 2xy = 5^2 - 13 = 25 - 13 = 12 \)
+              <br>\( xy = 6 \)
+            </li>
+            <li>เราจะได้ว่า \( x \) และ \( y \) คือรากของสมการกำลังสองที่มีผลบวกเท่ากับ \( 5 \) และผลคูณเท่ากับ \( 6 \) (สร้างจากสูตรเวียดคูณกลับ):
+              <br>\( t^2 - (\text{ผลบวก})t + (\text{ผลคูณ}) = 0 \)
+              <br>\( t^2 - 5t + 6 = 0 \)
+            </li>
+            <li>แยกตัวประกอบ: \( (t - 2)(t - 3) = 0 \) จะได้รากคือ \( 2 \) และ \( 3 \)</li>
+            <li><strong>สรุป:</strong> ค่าของ \( x + y \) คือ \( 5 \) (หรือถ้ามองเป็นคู่ลำดับคือ \( (2, 3) \) หรือ \( (3, 2) \))</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ถ้าสมการ \( x^2 - 7x + 10 = 0 \) มีรากเป็น \( r_1 \) และ \( r_2 \) จงหาค่าของ \( r_1^2 + r_2^2 \)</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">25</button>
+        <button onclick="checkQuiz(this, true)">29</button>
+        <button onclick="checkQuiz(this, false)">49</button>
+        <button onclick="checkQuiz(this, false)">53</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

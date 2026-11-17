@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 1 (ตอนที่ 2): จำนวนเฉพาะและการแยกตัวประกอบ - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 1 (ตอนที่ 2)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>🔢 ทฤษฎีจำนวน (ตอนที่ 2)<br><span>จำนวนเฉพาะ และทฤษฎีบทหลักมูลของเลขคณิต</span></h1>
+      <p>เจาะลึกอาณาจักรจำนวนเฉพาะ ถอดรหัสการแยกตัวประกอบขั้นเทพ และสูตรลัดนับจำนวนตัวประกอบในพริบตา</p>
+    </section>
+
+    <!-- ส่วนที่ 1: จำนวนเฉพาะคืออะไร ทำไมถึงสำคัญ? -->
+    <section class="lesson-card">
+      <h2>1. จำนวนเฉพาะ (Prime Numbers) และจำนวนประกอบ</h2>
+      <p>ในทางคณิตศาสตร์ เราแบ่งจำนวนเต็มบวกที่มากกว่า \(1\) ออกเป็น 2 ประเภทหลักๆ คือ:</p>
+      
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>🟢 จำนวนเฉพาะ (Prime Number):</strong>
+          <p>คือจำนวนเต็มบวกที่มีตัวหารที่เป็นบวกเพียง **2 ตัวเท่านั้น** คือ \(1\) และตัวมันเอง (เช่น \(2, 3, 5, 7, 11, 13, 17, \dots\))</p>
+          <p class="sub-note" style="margin-top: 8px;">*ข้อควรระวัง:* \(2\) เป็นจำนวนเฉพาะตัวเดียวที่เป็นจำนวนคู่!</p>
+        </div>
+        <div class="ex-item bad">
+          <strong>🔴 จำนวนประกอบ (Composite Number):</strong>
+          <p>คือจำนวนเต็มบวกที่มากกว่า \(1\) และมีตัวหารมากกว่า 2 ตัวขึ้นไป (เช่น \(4, 6, 8, 9, 10, 12, \dots\))</p>
+          <p class="sub-note" style="margin-top: 8px;">*คำถามคาใจ:* แล้วเลข \(1\) ล่ะ เป็นอะไร? <br><strong>ตอบ:</strong> \(1\) ไม่เป็นทั้งจำนวนเฉพาะและจำนวนประกอบ (เรียกว่า Unit)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ทฤษฎีบทหลักมูลของเลขคณิต -->
+    <section class="lesson-card">
+      <h2>2. ทฤษฎีบทหลักมูลของเลขคณิต (Fundamental Theorem of Arithmetic)</h2>
+      <p>ทฤษฎีนี้ถือเป็น "ดีเอ็นเอ" ของตัวเลขทุกตัวบนโลกใบนี้ ซึ่งใจความสำคัญมีอยู่ว่า:</p>
+      
+      <div class="formula-box">
+        "จำนวนเต็มบวกทุกตัวที่มากกว่า \(1\) สามารถเขียนให้อยู่ในรูปผลคูณของจำนวนเฉพาะได้ **เพียงแบบเดียวเท่านั้น** (ไม่รวมลำดับการคูณ)"
+      </div>
+
+      <p style="margin-top: 14px;">เช่น เมื่อเราแยกตัวประกอบของเลข \(72\) จะได้:</p>
+      <div class="formula-box" style="font-size: 1.3rem; color: var(--accent);">
+        $$72 = 2^3 \times 3^2$$
+      </div>
+      <p>ไม่ว่าน้องจะใช้วิธีหารสั้นหรือแผนภาพต้นไม้ คำตอบสุดท้ายในรูปเลขชี้กำลังของจำนวนเฉพาะจะออกมาเป็น \(2^3 \times 3^2\) เสมอ ไม่มีวันเปลี่ยนเป็นอย่างอื่น!</p>
+
+      <!-- สูตรลัดสำหรับ สอวน. -->
+      <h3>⚡ สูตรลัดสไตล์ สอวน. จากการแยกตัวประกอบ</h3>
+      <p>ถ้ากำหนดให้จำนวนเต็มบวกใดๆ เขียนในรูปมาตรฐานได้เป็น \(n = p_1^{a_1} \cdot p_2^{a_2} \cdots p_k^{a_k}\) (เมื่อ \(p\) เป็นจำนวนเฉพาะ)</p>
+      
+      <div class="property-list" style="margin-top: 12px;">
+        <div class="prop-item">
+          <strong>1. จำนวนตัวประกอบทั้งหมดของ \(n\):</strong> 
+          <div style="color: var(--primary); margin-top: 4px;">$$\text{จำนวนตัวประกอบ} = (a_1 + 1)(a_2 + 1)\cdots(a_k + 1)$$</div>
+        </div>
+        <div class="prop-item">
+          <strong>2. ผลบวกของตัวประกอบทั้งหมดของ \(n\):</strong>
+          <div style="color: var(--accent); margin-top: 4px;">$$\text{ผลรวม} = \left(\frac{p_1^{a_1+1}-1}{p_1-1}\right) \left(\frac{p_2^{a_2+1}-1}{p_2-1}\right) \cdots$$</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ห้องทดลอง Interactive แยกตัวประกอบ -->
+    <section class="lesson-card">
+      <h2>3. 🧪 ห้องทดลอง: เครื่องแยกตัวประกอบเฉพาะอัตโนมัติ</h2>
+      <p>ลองใส่ตัวเลขที่ต้องการ แล้วระบบจะคำนวณการแยกตัวประกอบ จำนวนตัวประกอบ และผลรวมตัวประกอบให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="inputNum" value="360" placeholder="ใส่ตัวเลข เช่น 360">
+          <button onclick="runPrimeFactorization()">คำนวณสูตรลัด</button>
+        </div>
+        <div id="factor-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>4. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- กล่องแนะนำคลิปติวโจทย์ สอวน. เพิ่มเติม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ตะลุยโจทย์ทฤษฎีจำนวน ค่าย 1 สอวน.</strong>
+          <p>ศึกษาแนวทางการแก้โจทย์ปัญหาเพิ่มเติมเพื่อความแม่นยำขั้นสุด</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=KCH1RGNyS5A&list=PLPLlBIgQEX5l0oOiBKNpzZ4X6xvLCjKIL" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปเฉลยโจทย์
+        </a>
+      </div>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ประยุกต์สูตรตัวประกอบ</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาว่ามีจำนวนเต็มบวกกี่ตัวที่หาร \(720\) ลงตัว</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>ขั้นแรก แยกตัวประกอบเฉพาะของ \(720\):
+              <br>\(720 = 72 \times 10 = (8 \times 9) \times (2 \times 5) = (2^3 \times 3^2) \times (2^1 \times 5^1)\)
+              <br>\(720 = 2^4 \times 3^2 \times 5^1\)
+            </li>
+            <li>นำเลขชี้กำลังของแต่ละจำนวนเฉพาะมาบวกเพิ่ม \(1\) แล้วคูณกันตามสูตร:
+              <br>\(\text{จำนวนตัวประกอบ} = (4 + 1)(2 + 1)(1 + 1)\)
+            </li>
+            <li>คำนวณค่า: \(5 \times 3 \times 2 = \mathbf{30}\) ตัว</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • วิเคราะห์เงื่อนไขตัวหาร</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">กำหนดให้ \(n = 2^3 \times 3^k \times 5^2\) ถ้าทราบว่าจำนวนตัวประกอบที่เป็นบวกของ \(n\) มีทั้งหมด \(60\) ตัว จงหาค่าของ \(k\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>จากโจทย์ รูปแบบการแยกตัวประกอบของ \(n\) คือ \(2^3 \times 3^k \times 5^2\) อยู่แล้ว</li>
+            <li>จากสูตรจำนวนตัวประกอบ จะได้สมการ:
+              <br>\((3 + 1)(k + 1)(2 + 1) = 60\)
+            </li>
+            <li>จัดรูปและแก้สมการ:
+              <br>\(4 \times (k + 1) \times 3 = 60\)
+              <br>\(12(k + 1) = 60\)
+              <br>\(k + 1 = \frac{60}{12} = 5\)
+              <br>\(\mathbf{k = 4}\)
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>จำนวน \(2^4 \times 3^3\) มีตัวประกอบที่เป็นบวกทั้งหมดกี่ตัว?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">12 ตัว</button>
+        <button onclick="checkQuiz(this, true)">20 ตัว</button>
+        <button onclick="checkQuiz(this, false)">24 ตัว</button>
+        <button onclick="checkQuiz(this, false)">35 ตัว</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

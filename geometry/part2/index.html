@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 3 (ตอนที่ 2): ทฤษฎีบทเกี่ยวกับวงกลม - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 3 (ตอนที่ 2)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>⭕ เรขาคณิต (ตอนที่ 2)<br><span>ทฤษฎีบทเกี่ยวกับวงกลมและสี่เหลี่ยมแนบในวงกลม</span></h1>
+      <p>เจาะลึกเทคนิคไล่มุมวงกลม สี่เหลี่ยมแนบในวงกลม และทฤษฎีบท Power of a Point ฉบับเตรียมสอบ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ทฤษฎีบทสำคัญของวงกลม -->
+    <section class="lesson-card">
+      <h2>1. อาวุธลับเรื่องมุมและความยาวในวงกลม</h2>
+      <p>การแก้โจทย์เรขาคณิตวงกลมในสนาม สอวน. มักอาศัยการมองหาส่วนโค้งที่รองรับมุมและคอร์ดที่ตัดกัน โดยมีหลักการสำคัญดังนี้:</p>
+
+      <div class="formula-box">
+        $$ \text{Power of a Point (คอร์ดตัดกันภายในวงกลม): } PA \cdot PB = PC \cdot PD $$
+        <p class="sub-note" style="margin-top: 6px;">และกรณีเส้นสัมผัส \( PT \) กับเส้นตัดวงกลม \( PAB \) จะได้ว่า \( PT^2 = PA \cdot PB \)</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องวงกลม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: สรุปทุกสิ่งที่ต้องรู้เรื่องวงกลม & ทฤษฎีบทมุม</strong>
+          <p>ปูพื้นฐานทฤษฎีบทวงกลมทั้งหมดแบบเข้าใจง่าย (โดย พี่ปั้น SmartMathPro)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=iqEjsWp66oE" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติววงกลม
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ สี่เหลี่ยมแนบในวงกลม (Cyclic Quadrilateral):</strong>
+          <ul>
+            <li>มุมตรงข้ามรวมกันได้ \( 180^\circ \) เสมอ (\( \hat{A} + \hat{C} = 180^\circ \))</li>
+            <li>มุมภายนอกจะเท่ากับมุมภายในที่อยู่ตรงข้าม</li>
+            <li><strong>ทฤษฎีบทปโตเลมี (Ptolemy's Theorem):</strong> ผลคูณเส้นทแยงมุมเท่ากับผลบวกของผลคูณด้านตรงข้าม (\( AC \cdot BD = AB \cdot CD + BC \cdot DA \))</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 ทฤษฎีบทมุมระหว่างเส้นสัมผัสกับคอร์ด:</strong>
+          <ul>
+            <li>มุมที่เกิดจากเส้นสัมผัสตัดกับคอร์ด จะมีขนาดเท่ากับมุมในส่วนโค้งของวงกลมที่อยู่ตรงข้ามกับคอร์ดนั้น (Alternate Segment Theorem)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณ Power of a Point -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณคอร์ดตัดกันในวงกลม (Power of a Point)</h2>
+      <p>เมื่อคอร์ด \( AB \) และ \( CD \) ตัดกันที่จุด \( P \) ภายในวงกลม ลองป้อนความยาว \( PA \), \( PB \) และ \( PC \) ระบบจะคำนวณความยาว \( PD \) ที่เหลือให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="segPA" value="4" placeholder="ความยาว PA">
+          <input type="number" id="segPB" value="9" placeholder="ความยาว PB">
+          <input type="number" id="segPC" value="6" placeholder="ความยาว PC">
+          <button onclick="runPowerOfPoint()">คำนวณความยาว PD</button>
+        </div>
+        <div id="circle-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • สี่เหลี่ยมแนบในวงกลม</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">สี่เหลี่ยม \( ABCD \) แนบในวงกลม โดยที่ \( \hat{A} = (2x + 15)^\circ \) และมุมตรงข้าม \( \hat{C} = (3x - 10)^\circ \) จงหาขนาดของมุม \( \hat{A} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>จากสมบัติของสี่เหลี่ยมแนบในวงกลม มุมตรงข้ามรวมกันต้องเท่ากับ \( 180^\circ \):
+              <br>\( \hat{A} + \hat{C} = 180^\circ \)
+            </li>
+            <li>แทนค่ามุมลงในสมการ:
+              <br>\( (2x + 15) + (3x - 10) = 180 \)
+              <br>\( 5x + 5 = 180 \)
+            </li>
+            <li>แก้สมการหาค่า \( x \):
+              <br>\( 5x = 175 \implies x = 35^\circ \)
+            </li>
+            <li>แทนค่า \( x = 35^\circ \) กลับเพื่อหามุม \( \hat{A} \):
+              <br>\( \hat{A} = 2(35) + 15 = 70 + 15 = \mathbf{85^\circ} \)
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • เส้นสัมผัสและเส้นตัดวงกลม</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">ลากเส้นตรงจากจุด \( P \) ภายนอกวงกลมไปสัมผัสวงกลมที่จุด \( T \) ยาว \( 6 \) หน่วย และลากเส้นตัดวงกลมผ่านจุด \( A \) และ \( B \) ตามลำดับ โดยที่ \( PA = 4 \) หน่วย จงหาความยาวของคอร์ด \( AB \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>จากทฤษฎีบท Power of a Point กรณีเส้นสัมผัสและเส้นตัดวงกลม:
+              <br>\( PT^2 = PA \cdot PB \)
+            </li>
+            <li>แทนค่า \( PT = 6 \) และ \( PA = 4 \) ลงในสมการ:
+              <br>\( 6^2 = 4 \cdot PB \)
+              <br>\( 36 = 4 \cdot PB \implies PB = 9 \) หน่วย
+            </li>
+            <li>เนื่องจากจุด \( P, A, B \) เรียงอยู่บนเส้นตรงเดียวกัน ดังนั้น \( PB = PA + AB \):
+              <br>\( 9 = 4 + AB \implies \mathbf{AB = 5} \) หน่วย
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>คอร์ด \( AB \) และ \( CD \) ตัดกันภายในวงกลมที่จุด \( P \) ถ้า \( AP = 3 \), \( PB = 8 \) และ \( CP = 4 \) จงหาความยาวของ \( PD \)</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">4</button>
+        <button onclick="checkQuiz(this, true)">6</button>
+        <button onclick="checkQuiz(this, false)">8</button>
+        <button onclick="checkQuiz(this, false)">12</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

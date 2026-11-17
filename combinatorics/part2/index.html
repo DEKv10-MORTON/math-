@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คอมบิเนททอริก (ตอนที่ 2): หลักรังนกพิราบและการจัดหมู่ขั้นสูง - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • คอมบิเนททอริก ตอนที่ 2</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>🕊️ คอมบิเนททอริก (ตอนที่ 2)<br><span>หลักรังนกพิราบและการจัดหมู่ขั้นสูง</span></h1>
+      <p>พิชิตโจทย์พิสูจน์ขั้นเทพด้วย Pigeonhole Principle และเทคนิคการแบ่งกลุ่มสิ่งของระดับ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: หลักรังนกพิราบ (Pigeonhole Principle) -->
+    <section class="lesson-card">
+      <h2>1. หลักรังนกพิราบ (Pigeonhole Principle - PHP)</h2>
+      <p>หลักการพื้นฐานที่ทรงพลังในการแก้ปัญหาการมีอยู่ของสิ่งของ โดยไม่ต้องแจกแจงทุกกรณี:</p>
+
+      <div class="formula-box">
+        $$ \text{General PHP: ถ้านกพิราบ } k \cdot n + 1 \text{ ตัว ถูกจัดลงในรัง } n \text{ รัง} $$
+        $$ \text{จะต้องมีอย่างน้อย } 1 \text{ รังที่มีนกพิราบสะสมอยู่มากกว่าหรือเท่ากับ } k + 1 \text{ ตัว} $$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องหลักรังนกพิราบ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ติวเข้มทฤษฎีจำนวนและคอมบิเนท สอวน.</strong>
+          <p>แนวข้อสอบและการประยุกต์ใช้หลักรังนกพิราบแบบเจาะลึก</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=fFeIJxI7V-g" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวคอมบิเนท
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ แนวคิดการเลือกใช้ PHP:</strong>
+          <ul>
+            <li>ต้องกำหนดให้ชัดเจนว่าอะไรคือ <strong>"นกพิราบ" (สิ่งของ/คน)</strong> และอะไรคือ <strong>"รัง" (กลุ่ม/เงื่อนไข)</strong></li>
+            <li>มักใช้ในโจทย์คำถามประเภท "จงพิสูจน์ว่ามีอย่างน้อย..." หรือ "ต้องสุ่มอย่างน้อยกี่ชิ้น..."</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 การจัดหมู่แบบมีสิ่งของซ้ำ (Stars and Bars):</strong>
+          <ul>
+            <li>จำนวนวิธีแจกของเหมือนกัน \( n \) ชิ้น ให้กับคน \( r \) คน โดยแต่ละคนจะได้รับกี่ชิ้นก็ได้:</li>
+            <li>\( C(n + r - 1, r - 1) \)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive จำลองหลักรังนกพิราบ -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องจำลองหลักรังนกพิราบ (PHP Simulator)</h2>
+      <p>ลองกำหนดจำนวนนกพิราบ (สิ่งของ) และจำนวนรัง (กลุ่ม) ระบบจะคำนวณจำนวนนกขั้นต่ำในรังที่หนาแน่นที่สุดตามหลัก PHP ให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="pigeons" value="13" placeholder="จำนวนนกพิราบ (Pigeons)">
+          <input type="number" id="holes" value="12" placeholder="จำนวนรัง (Holes)">
+          <button onclick="runPHPTest()">คำนวณความหนาแน่นขั้นต่ำ</button>
+        </div>
+        <div id="php-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • Pigeonhole Principle</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาว่าต้องสุ่มหยิบถุงเท้าสีดำและสีขาวจากตู้มืดอย่างน้อยกี่ข้าง จึงจะมั่นใจได้แน่นอนว่าจะมีถุงเท้าสีเดียวกันครบหนึ่่งคู่ (2 ข้าง)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>กำหนดให้ <strong>"รัง"</strong> คือสีของถุงเท้า ซึ่งมีอยู่ 2 รัง (สีดำ และ สีขาว)</li>
+            <li>ตามหลัก PHP ถ้าเราต้องการให้มีนก (ถุงเท้า) ในรังใดรังหนึ่งอย่างน้อย \( k + 1 = 2 \) ข้าง (ครบ 1 คู่) เราต้องมีจำนวนนกพิราบเท่ากับ \( n \cdot k + 1 \):
+              <br>\( \text{จำนวนถุงเท้า} = 2 \times 1 + 1 = 3 \) ข้าง
+            </li>
+            <li><strong>สรุป:</strong> ถ้าสุ่มหยิบถุงเท้ามา \( 3 \) ข้าง จะมั่นใจได้ 100% ว่าจะได้ถุงเท้าสีเดียวกันอย่างน้อย 1 คู่แน่นอน</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • การพิสูจน์ด้วย PHP ขั้นสูง</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">กำหนดให้เลือกจำนวนเต็มบวกมา \( 5 \) จำนวน จงพิสูจน์ว่าจะมีอย่างน้อยสองจำนวนที่มีผลต่างของกำลังสองหารด้วย \( 4 \) ลงตัวเสมอ</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>พิจารณาเศษเหลือของจำนวนเต็มเมื่อหารด้วย \( 4 \) จะมีเศษที่เป็นไปได้ทั้งหมด \( 4 \) แบบ คือ \( 0, 1, 2, 3 \)</li>
+            <li>เมื่อนำจำนวนเต็มใดยกกำลังสอง แล้วนำไปหารด้วย \( 4 \) เศษเหลือที่เป็นไปได้จะมีเพียงแค่ \( 0 \) หรือ \( 1 \) เท่านั้น (เนื่องจาก \( 0^2 \equiv 0, 1^2 \equiv 1, 2^2 \equiv 0, 3^2 \equiv 1 \pmod 4 \))</li>
+            <li>ให้เศษเหลือ \( 0 \) และ \( 1 \) ทำหน้าที่เป็น <strong>"รัง"</strong> ทั้งหมด \( 2 \) รัง</li>
+            <li>เนื่องจากเราเลือกจำนวนมาทั้งหมด \( 5 \) จำนวน (นกพิราบ \( 5 \) ตัว) และรังมีเพียง \( 2 \) รัง ตามหลัก PHP จะต้องมีอย่างน้อย \( \lceil 5/2 \rceil = 3 \) จำนวนที่มีเศษเหลือจากการหารกำลังสองด้วย \( 4 \) เท่ากัน</li>
+            <li>เมื่อนำสองจำนวนใดๆ ในกลุ่มนี้ที่มีเศษเท่ากันมาลบกัน (\( a^2 - b^2 \)) เศษเหลือจะหักล้างกันเป็น \( 0 \) พอดี ทำให้ผลต่างหารด้วย \( 4 \) ลงตัวเสมอ พิสูจน์เสร็จสิ้น!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ในงานเลี้ยงแห่งหนึ่งที่มีคนมาร่วมงาน \( 13 \) คน จงหาว่าต้องมีอย่างน้อยกี่คนที่เกิดใน <strong>เดือนเดียวกัน</strong>?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">1 คน</button>
+        <button onclick="checkQuiz(this, true)">2 คน</button>
+        <button onclick="checkQuiz(this, false)">3 คน</button>
+        <button onclick="checkQuiz(this, false)">12 คน</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

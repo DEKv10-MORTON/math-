@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 1: ทฤษฎีจำนวน (ตอนที่ 1) - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax เพื่อให้แสดงสมการคณิตศาสตร์สวยเหมือนหนังสือเรียน -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 1</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>🔢 ทฤษฎีจำนวน (ตอนที่ 1)<br><span>การหารลงตัว หร.ม. และขั้นตอนวิธีของยุคลิด</span></h1>
+      <p>ปูพื้นฐานจากศูนย์ให้เด็ก ม.2 เข้าใจภาษาคณิตศาสตร์ระดับแข่งขัน พร้อมเทคนิคหา หร.ม. เลขหลักล้านใน 5 วินาที</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ปูพื้นฐานการหารลงตัว -->
+    <section class="lesson-card">
+      <h2>1. การหารลงตัว (Divisibility) คืออะไร?</h2>
+      <p>ในชั้นเรียนปกติ เราเขียนว่า \(12 \div 3 = 4\) แต่ใน สอวน. เราจะเปลี่ยนมาใช้สัญลักษณ์เส้นตั้งตรงแบบนี้ครับ:</p>
+      
+      <div class="formula-box">
+        $$a \mid b \quad \text{อ่านว่า "a หาร b ลงตัว"}$$
+        <p class="sub-note">หมายความว่า มีจำนวนเต็ม \(k\) ที่ทำให้ \(b = a \cdot k\) (โดยที่ \(a \neq 0\))</p>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ ตัวอย่างที่ถูก:</strong>
+          <ul>
+            <li>\(3 \mid 12\) เพราะ \(12 = 3 \times 4\)</li>
+            <li>\(-5 \mid 20\) เพราะ \(20 = (-5) \times (-4)\)</li>
+            <li>\(7 \mid 0\) เพราะ \(0 = 7 \times 0\) (ศูนย์หารด้วยอะไรก็ลงตัว ยกเว้น 0)</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>❌ จุดที่เด็ก ม.2 ชอบสับสน:</strong>
+          <ul>
+            <li>\(12 \mid 3\) <strong>ผิด!</strong> (ต้องเอาตัวหารไว้ข้างหน้า ตัวตั้งไว้ข้างหลัง)</li>
+            <li>\(0 \mid 5\) <strong>ผิด!</strong> (ห้ามเอา 0 เป็นตัวหารเด็ดขาด)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🔑 4 สมบัติไม้ตายที่ใช้พิสูจน์ข้อสอบ สอวน.</h3>
+      <div class="property-list">
+        <div class="prop-item"><strong>1. สมบัติการถ่ายทอด:</strong> ถ้า \(a \mid b\) และ \(b \mid c\) แล้ว \(a \mid c\)</div>
+        <div class="prop-item"><strong>2. สมบัติการคูณเพิ่ม:</strong> ถ้า \(a \mid b\) แล้ว \(a \mid bc\) (คูณอะไรเข้าไปข้างหลังก็ยังหารลงตัว)</div>
+        <div class="prop-item"><strong>3. สมบัติการรวมร่าง (Linear Combination):</strong> ถ้า \(a \mid b\) และ \(a \mid c\) แล้ว \(a \mid (bx + cy)\) เสมอ (ไม่ว่า \(x, y\) จะเป็นจำนวนเต็มบวกหรือลบ!)</div>
+        <div class="prop-item"><strong>4. สมบัติขนาดตัวเลข:</strong> ถ้า \(a \mid b\) และ \(b \neq 0\) แล้ว \(\vert{}a\vert{} \le \vert{}b\vert{}\) (ตัวหารไม่มีทางใหญ่กว่าตัวตั้ง)</div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ขั้นตอนวิธีของยุคลิด -->
+    <section class="lesson-card">
+      <h2>2. ขั้นตอนวิธีของยุคลิด (Euclidean Algorithm)</h2>
+      <p>ถ้าโจทย์ให้หา <strong>หร.ม.</strong> ของ \(12\) กับ \(18\) เราคงตั้งหารสั้นได้สบาย แต่ถ้าโจทย์ สอวน. ถามว่า:</p>
+      <div class="highlight-quote">
+        "จงหา ห.ร.ม. ของ \(2,479\) และ \(1,843\)"
+      </div>
+      <p>การนั่งสุ่มหาแม่สูตรคูณมาหารสั้นจะเสียเวลาทำข้อสอบมาก! <strong>ยุคลิด (Euclid)</strong> จึงคิดค้นทฤษฎีที่บอกว่า:</p>
+      
+      <div class="formula-box">
+        $$\gcd(a, b) = \gcd(b, r)$$
+        <p class="sub-note">เมื่อ \(a = bq + r\) (พูดง่ายๆ คือ <strong>"ห.ร.ม. ของตัวตั้งกับตัวหาร จะเท่ากับ ห.ร.ม. ของตัวหารกับเศษเหลือเสมอ"</strong>)</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิปวิดีโออธิบายเสริมบน YouTube -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 ยังไม่เห็นภาพใช่ไหม? ลองดูคลิปอธิบายเพิ่มเติม</strong>
+          <p>สรุปเทคนิคการหา หร.ม. และ ครน. ด้วยขั้นตอนวิธีของยุคลิด (โดยช่อง Math and Life)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=AJU7VUz-yaM" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ดูคลิปติวบน YouTube
+        </a>
+      </div>
+
+      <!-- เครื่องมือจำลองยูคลิดแบบ Interactive -->
+      <div class="simulator-box">
+        <h3>🧪 ห้องทดลอง: เครื่องคำนวณยุคลิดทีละขั้น</h3>
+        <p>ลองใส่ตัวเลขเยอะๆ 2 ตัว แล้วกดปุ่มเพื่อดูวิธีแตกสมการแบบ สอวน. ครับ:</p>
+        <div class="input-row">
+          <input type="number" id="numA" value="2479" placeholder="ตัวเลขที่ 1">
+          <input type="number" id="numB" value="1843" placeholder="ตัวเลขที่ 2">
+          <button onclick="runEuclidean()">แสดงวิธีทำ</button>
+        </div>
+        <div id="euclid-steps" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์แนว สอวน. พร้อมเฉลยทีละขั้น -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน. (ลองทำก่อนเปิดเฉลย!)</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับเริ่มต้น • ใช้สมบัติการรวมร่าง</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาจำนวนเต็มบวก \(n\) ทั้งหมด ที่ทำให้ \(n + 2\) หาร \(3n + 17\) ลงตัว (เขียนเป็นสัญลักษณ์คือ \((n+2) \mid (3n+17)\))</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <p><strong>แนวคิดหลัก:</strong> เราต้องกำจัดตัวแปร \(n\) ออกจากตัวตั้งให้หมด โดยใช้สมบัติ \((a \mid b \text{ และ } a \mid c \implies a \mid (bx + cy))\)</p>
+          <ol>
+            <li>เรารู้ว่าตัวมันเองย่อมหารตัวมันเองลงตัว: \((n+2) \mid (n+2)\)</li>
+            <li>เอา \(3\) คูณเข้าข้างหลังเพื่อให้มี \(3n\) เหมือนตัวตั้ง: \((n+2) \mid 3(n+2) \implies (n+2) \mid (3n+6)\)</li>
+            <li>โจทย์กำหนดให้: \((n+2) \mid (3n+17)\)</li>
+            <li>จับมาลบกันเพื่อกำจัด \(3n\): \((n+2) \mid [(3n+17) - (3n+6)]\)</li>
+            <li>จะได้ว่า: <strong>\((n+2) \mid 11\)</strong> (เหลือแต่ตัวเลขเพียวๆ แล้ว!)</li>
+            <li>ตัวประกอบที่เป็นจำนวนเต็มของ \(11\) มีแค่ \(\pm 1, \pm 11\)</li>
+            <li>เนื่องจาก \(n\) เป็นจำนวนเต็มบวก ดังนั้น \(n+2 \ge 3\) จึงเหลือแค่กรณีเดียวคือ \(n+2 = 11 \implies \mathbf{n = 9}\)</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • ยูคลิดประยุกต์</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">กำหนดให้ \(n\) เป็นจำนวนเต็มบวก จงหาค่าที่เป็นไปได้ทั้งหมดของ \(\gcd(5n + 3, 2n + 1)\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <p><strong>แนวคิดหลัก:</strong> สมมติให้ \(d = \gcd(5n + 3, 2n + 1)\) แปลว่า \(d\) ต้องหารทั้งสองก้อนนี้ลงตัว</p>
+          <ol>
+            <li>จากนิยาม หร.ม. จะได้ \(d \mid (5n + 3)\) และ \(d \mid (2n + 1)\)</li>
+            <li>เราอยากกำจัด \(n\) ทิ้ง จึงคูณ \(2\) เข้าก้อนแรก และคูณ \(5\) เข้าก้อนหลัง:
+              <br>• \(d \mid 2(5n + 3) \implies d \mid (10n + 6)\)
+              <br>• \(d \mid 5(2n + 1) \implies d \mid (10n + 5)\)
+            </li>
+            <li>จับสองก้อนนี้มาลบกัน: \(d \mid [(10n + 6) - (10n + 5)]\)</li>
+            <li>จะได้ว่า: <strong>\(d \mid 1\)</strong></li>
+            <li>จำนวนเต็มบวกที่หาร \(1\) ลงตัวมีแค่ตัวเดียวเท่านั้น! ดังนั้น \(\mathbf{\gcd(5n + 3, 2n + 1) = 1}\) เสมอ (เป็นจำนวนเฉพาะสัมพัทธ์กันทุกค่า \(n\))</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซวัดความเข้าใจ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจก่อนไปตอนที่ 2</h2>
+      <p>จงหา ห.ร.ม. ของ \(391\) และ \(299\) (ลองใช้วิธียูคลิดคิดในกระดาษทดดูครับ)</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">13</button>
+        <button onclick="checkQuiz(this, false)">17</button>
+        <button onclick="checkQuiz(this, true)">23</button>
+        <button onclick="checkQuiz(this, false)">29</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 3 (ตอนที่ 1): ความคล้ายและทฤษฎีบทพีทาโกรัสขั้นสูง - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 3 (ตอนที่ 1)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📐 เรขาคณิต (ตอนที่ 1)<br><span>ความคล้ายและทฤษฎีบทพีทาโกรัสขั้นสูง</span></h1>
+      <p>ปูพื้นฐานอาวุธลับเรขาคณิต สอวน. ด้วยอัตราส่วนสามเหลี่ยมคล้าย พื้นที่ และทฤษฎีบทแบ่งครึ่งมุม</p>
+    </section>
+
+    <!-- ส่วนที่ 1: สามเหลี่ยมคล้ายและอัตราส่วนพื้นที่ -->
+    <section class="lesson-card">
+      <h2>1. สามเหลี่ยมคล้าย (Similar Triangles) และอัตราส่วนพื้นที่</h2>
+      <p>หากสามเหลี่ยม \( \triangle ABC \sim \triangle DEF \) (มีมุมเท่ากันครบ 3 คู่)
+        อัตราส่วนความยาวด้านที่สมนัยกันจะเท่ากันเสมอ และส่งผลถึงอัตราส่วนพื้นที่ดังนี้:</p>
+
+      <div class="formula-box">
+        $$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD} = k \implies \frac{\text{พื้นที่ } \triangle ABC}{\text{พื้นที่
+        } \triangle DEF} = k^2$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องเรขาคณิตและสัดส่วนพื้นที่ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ทฤษฎีบทเกี่ยวกับสัดส่วนพื้นที่รูปสามเหลี่ยม</strong>
+          <p>เจาะลึกการใช้สัดส่วนพื้นที่และสามเหลี่ยมคล้ายระดับแข่งขัน (โดย อาจารย์ดำรง Tipyotha)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=1AhGq5tOtVg" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวเรขาคณิต
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ ทฤษฎีบทเส้นแบ่งครึ่งมุม (Angle Bisector Theorem):</strong>
+          <p>ใน \( \triangle ABC \) ถ้าเส้นตรง \( AD \) แบ่งครึ่งมุม \( \hat{A} \) และตัดด้าน \( BC \) ที่จุด \( D \)
+            จะได้ว่า:</p>
+          <p class="sub-note" style="margin-top: 6px; color: var(--accent); font-weight: bold;">$$ \frac{AB}{AC} =
+            \frac{BD}{DC} $$</p>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 ทฤษฎีบทสจ๊วต (Stewart's Theorem) เบื้องต้น:</strong>
+          <p>ใช้หาความยาวเส้นตรงใดๆ ที่ลากจากจุดยอด \( A \) มาแบ่งฐาน \( BC \) ออกเป็นส่วน \( m \) และ \( n \)
+            โดยไม่ต้องใช้ตรีโกณมิติ:</p>
+          <p class="sub-note" style="margin-top: 6px;">\( b^2 m + c^2 n = a(d^2 + mn) \)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive ทฤษฎีบทแบ่งครึ่งมุม & พีทาโกรัส -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณอัตราส่วนเส้นแบ่งครึ่งมุม</h2>
+      <p>กำหนดความยาวด้านประกอบมุมยอด \( AB \), \( AC \) และความยาวฐานรวม \( BC \) ระบบจะคำนวณความยาวส่วนแบ่งฐาน \( BD
+        \) และ \( DC \) ให้ทันที:</p>
+
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="sideAB" value="6" placeholder="ด้าน AB">
+          <input type="number" id="sideAC" value="9" placeholder="ด้าน AC">
+          <input type="number" id="sideBC" value="10" placeholder="ฐาน BC">
+          <button onclick="runAngleBisector()">คำนวณส่วนแบ่งฐาน</button>
+        </div>
+        <div id="geo-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • สามเหลี่ยมคล้ายและพื้นที่</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">สามเหลี่ยม \( \triangle ABC \) มีจุด \( D \) อยู่บน \( AB \) และจุด \( E \) อยู่บน \( AC \)
+          โดยที่ \( DE \parallel BC \) ถ้า \( AD : DB = 2 : 3 \) และพื้นที่ของ \( \triangle ADE \) เท่ากับ \( 12 \)
+          ตารางหน่วย จงหาพื้นที่ของสี่เหลี่ยมคางหมู \( DBCE \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>เนื่องจาก \( DE \parallel BC \) จะได้ว่า \( \triangle ADE \sim \triangle ABC \)</li>
+            <li>หาอัตราส่วนด้านที่สมนัยกัน: \( \frac{AD}{AB} = \frac{2}{2 + 3} = \frac{2}{5} \)</li>
+            <li>ใช้สมบัติอัตราส่วนพื้นที่ของสามเหลี่ยมคล้าย:
+              <br>\( \frac{\text{พื้นที่ } \triangle ADE}{\text{พื้นที่ } \triangle ABC} = \left(\frac{2}{5}\right)^2 =
+              \frac{4}{25} \)
+            </li>
+            <li>แทนพื้นที่ \( \triangle ADE = 12 \) ลงไป:
+              <br>\( \frac{12}{\text{พื้นที่ } \triangle ABC} = \frac{4}{25} \implies \text{พื้นที่ } \triangle ABC =
+              \frac{12 \times 25}{4} = 75 \) ตารางหน่วย
+            </li>
+            <li>หาพื้นที่สี่เหลี่ยมคางหมู \( DBCE = \text{พื้นที่ } \triangle ABC - \text{พื้นที่ } \triangle ADE = 75 -
+              12 = \mathbf{63} \) ตารางหน่วย</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • พีทาโกรัสซ้อนรูปสามเหลี่ยมมุมฉาก</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">สามเหลี่ยมมุมฉาก \( \triangle ABC \) มีมุม \( \hat{B} = 90^\circ \) ลากเส้นตรง \( BD \)
+          ตั้งฉากกับด้านตรงข้ามมุมฉาก \( AC \) ที่จุด \( D \) ถ้า \( AD = 4 \) หน่วย และ \( DC = 9 \) หน่วย
+          จงหาความยาวของส่วนสูง \( BD \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>เมื่อลากส่วนสูง \( BD \) จากมุมฉากลงมาตั้งฉากกับด้านตรงข้ามมุมฉาก จะเกิดสามเหลี่ยมคล้าย 3 รูป: \(
+              \triangle ADB \sim \triangle BDC \sim \triangle ABC \)</li>
+            <li>พิจารณาคู่ \( \triangle ADB \sim \triangle BDC \) เทียบอัตราส่วนด้านประกอบมุมฉาก:
+              <br>\( \frac{AD}{BD} = \frac{BD}{DC} \)
+            </li>
+            <li>คูณไขว้จะได้สูตรลัดยอดฮิต (Geometric Mean Theorem):
+              <br>\( BD^2 = AD \times DC \)
+            </li>
+            <li>แทนค่าตัวเลขลงไป:
+              <br>\( BD^2 = 4 \times 9 = 36 \implies \mathbf{BD = 6} \) หน่วย
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ในสามเหลี่ยม \( \triangle ABC \) เส้นแบ่งครึ่งมุม \( \hat{A} \) ตัดด้าน \( BC \) ที่จุด \( D \) ถ้า \( AB = 8
+        \), \( AC = 12 \) และ \( BD = 4 \) จงหาความยาวของ \( DC \)</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">4</button>
+        <button onclick="checkQuiz(this, true)">6</button>
+        <button onclick="checkQuiz(this, false)">8</button>
+        <button onclick="checkQuiz(this, false)">9</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

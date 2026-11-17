@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 1 (ตอนที่ 3): เลขคณิตมอดุโลและสมภาค - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 1 (ตอนที่ 3)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>⏰ ทฤษฎีจำนวน (ตอนที่ 3)<br><span>เลขคณิตมอดุโล และสมภาค (Congruence)</span></h1>
+      <p>เปลี่ยนโจทย์หาเศษเหลือเลขยกกำลังหลักพัน ให้กลายเป็นคณิตศาสตร์คิดในใจระดับเทพด้วยหลักการนาฬิกา</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ปูพื้นฐานสมภาคจากเรื่องนาฬิกา -->
+    <section class="lesson-card">
+      <h2>1. สมภาค (Congruence) คืออะไร? (คิดแบบนาฬิกา!)</h2>
+      <p>ลองนึกถึงหน้าปัดนาฬิกาที่มีเลข \(1\) ถึง \(12\) ถ้าตอนนี้เวลา \(10\) โมงเช้า อีก \(5\) ชั่วโมงข้างหน้าจะเป็นกี่โมง? คำตอบไม่ใช่ \(15\) โมง แต่เป็น <strong>บ่าย \(3\) โมง</strong>! เพราะนาฬิกาจะวนครบรอบทุกๆ \(12\) ชั่วโมง</p>
+      <p style="margin-top: 8px;">ในทางคณิตศาสตร์ เราเรียกความสัมพันธ์นี้ว่า <strong>สมภาค (Congruence)</strong> และเขียนแทนด้วยสัญลักษณ์ขีดสามเส้นแบบนี้ครับ:</p>
+
+      <div class="formula-box">
+        $$a \equiv b \pmod{m}$$
+        <p class="sub-note">อ่านว่า <strong>"\(a\) สมภาคกับ \(b\) มอดุโล \(m\)"</strong><br>ความหมายเข้าใจง่ายๆ 2 แบบ (เลือกใช้แบบไหนก็ได้):<br>1. \(a\) และ \(b\) หารด้วย \(m\) แล้ว <strong>เหลือเศษเท่ากัน</strong><br>2. \(m\) หารผลต่าง \((a - b)\) ลงตัว นั่นคือ \(m \mid (a - b)\)</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องนิยามสมภาค -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: นิยาม และสมบัติพื้นฐานของ Congruence</strong>
+          <p>เจาะลึกที่มาของสมภาคและการพิสูจน์สมบัติพื้นฐาน (โดยช่อง Math and Life)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=YFnqjZpvFCA" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปอธิบาย
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ ตัวอย่างการเขียนสมภาค:</strong>
+          <ul>
+            <li>\(17 \equiv 2 \pmod{5}\) เพราะ \(17\) และ \(2\) หารด้วย \(5\) เหลือเศษ \(2\) เท่ากัน</li>
+            <li>\(25 \equiv 1 \pmod{12}\) เพราะ \(12 \mid (25 - 1)\)</li>
+            <li>\(14 \equiv 0 \pmod{7}\) แปลว่า \(7\) หาร \(14\) ลงตัว (เศษเป็น \(0\))</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 ทริคเด็ด สอวน. (ใช้เศษติดลบได้!):</strong>
+          <ul>
+            <li>\(9 \equiv 4 \pmod{5}\) (เศษปกติ)</li>
+            <li>แต่เราเขียนเป็น \(9 \equiv -1 \pmod{5}\) ก็ได้! เพราะ \(5 \mid (9 - (-1))\) หรือ \(5 \mid 10\) ลงตัว!</li>
+            <li>การใช้ \(-1\) แทน \(4\) จะช่วยให้ยกกำลังง่ายขึ้นมหาศาล เช่น \((-1)^{2026} = 1\) ทันที!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: 4 กฎเหล็กของสมภาค -->
+    <section class="lesson-card">
+      <h2>2. 4 สมบัติไม้ตายของสมภาค (บวก ลบ คูณ ยกกำลังได้!)</h2>
+      <p>สมภาคมีนิสัยคล้ายเครื่องหมายเท่ากับ (\(=\)) มาก! กำหนดให้ \(a \equiv b \pmod{m}\) และ \(c \equiv d \pmod{m}\) เราสามารถทำสิ่งเหล่านี้ได้ทันที:</p>
+      
+      <div class="property-list" style="margin-top: 12px;">
+        <div class="prop-item"><strong>1. จับบวกกันได้:</strong> \(a + c \equiv b + d \pmod{m}\)</div>
+        <div class="prop-item"><strong>2. จับลบกันได้:</strong> \(a - c \equiv b - d \pmod{m}\)</div>
+        <div class="prop-item"><strong>3. จับคูณกันได้:</strong> \(ac \equiv bd \pmod{m}\)</div>
+        <div class="prop-item"><strong>4. ยกกำลังทั้งสองข้างได้:</strong> \(a^k \equiv b^k \pmod{m}\) (เมื่อ \(k\) เป็นจำนวนเต็มบวก)</div>
+      </div>
+
+      <div class="highlight-quote">
+        ⚠️ ข้อควรระวังสูงสุด: <strong>ห้ามหารตรงๆ เหมือนสมการปกติ!</strong> (เช่น \(6 \equiv 2 \pmod{4}\) จะเอา \(2\) หารตลอดเป็น \(3 \equiv 1 \pmod{4}\) ไม่ได้ เพราะ \(4\) หาร \(3-1\) ไม่ลงตัว!)
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ห้องทดลอง Interactive หาเศษเหลือ -->
+    <section class="lesson-card">
+      <h2>3. 🧪 ห้องทดลอง: เครื่องคำนวณเศษเหลือเลขยกกำลัง (Modular Power)</h2>
+      <p>ลองใส่โจทย์หาเศษเหลือเลขยกกำลังเยอะๆ เช่น \(7^{2026} \bmod 5\) ระบบจะคำนวณหาเศษเหลือที่แท้จริงให้ดูทันที (ใช้เทคนิค Binary Exponentiation แบบเดียวกับโปรแกรมเมอร์แข่งขัน):</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="modBase" value="7" placeholder="ฐาน (a)">
+          <input type="number" id="modExp" value="2026" placeholder="เลขชี้กำลัง (k)">
+          <input type="number" id="modDiv" value="5" placeholder="ตัวหาร (m)">
+          <button onclick="runModPower()">คำนวณเศษเหลือ</button>
+        </div>
+        <div id="mod-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>4. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ทริคเศษติดลบ (-1)</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาเศษเหลือจากการหาร \(7^{2026}\) ด้วย \(8\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>สังเกตฐาน \(7\) กับตัวหาร \(8\): เลข \(7\) ขาดอีกแค่ \(1\) ก็จะครบ \(8\)</li>
+            <li>เขียนในรูปสมภาคได้ว่า: \(7 \equiv -1 \pmod{8}\)</li>
+            <li>ใช้สมบัติยกกำลังทั้งสองข้างด้วย \(2026\):
+              <br>\(7^{2026} \equiv (-1)^{2026} \pmod{8}\)
+            </li>
+            <li>เนื่องจาก \(2026\) เป็นเลขคู่ ดังนั้น \((-1)^{2026} = 1\)</li>
+            <li>จะได้ \(7^{2026} \equiv 1 \pmod{8}\) ดังนั้นเศษเหลือคือ <strong>\(1\)</strong> ตอบใน 3 วินาที!</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • จัดรูปเลขชี้กำลัง</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาเศษเหลือจากการหาร \(3^{100}\) ด้วย \(7\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <p><strong>แนวคิดหลัก:</strong> ไล่ยกกำลังของ \(3\) ไปเรื่อยๆ จนกว่าจะได้ตัวที่หารด้วย \(7\) แล้วเหลือเศษ \(1\) หรือ \(-1\)</p>
+          <ol>
+            <li>\(3^1 \equiv 3 \pmod{7}\)</li>
+            <li>\(3^2 = 9 \equiv 2 \pmod{7}\)</li>
+            <li>\(3^3 = 27 \equiv -1 \pmod{7}\) (เจอตัวช่วยแล้ว! เพราะ \(28\) หาร \(7\) ลงตัว)</li>
+            <li>จัดรูป \(3^{100}\) ให้อยู่ในรูปของ \(3^3\):
+              <br>\(3^{100} = (3^3)^{33} \cdot 3^1\)
+            </li>
+            <li>แทนค่า \(3^3 \equiv -1 \pmod{7}\) ลงไป:
+              <br>\(3^{100} \equiv (-1)^{33} \cdot 3 \pmod{7}\)
+            </li>
+            <li>เนื่องจาก \(33\) เป็นเลขคี่ จะได้ \((-1)^{33} = -1\)
+              <br>\(3^{100} \equiv (-1) \cdot 3 \equiv -3 \pmod{7}\)
+            </li>
+            <li>แปลงเศษติดลบให้เป็นบวกโดยบวกตัวหาร \(7\) เข้าไป: \(-3 + 7 = \mathbf{4}\)</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>จงหาเศษเหลือจากการหาร \(9^{99}\) ด้วย \(10\) (ใบ้ให้: \(9\) ห่างจาก \(10\) แค่ไหน?)</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">1</button>
+        <button onclick="checkQuiz(this, false)">3</button>
+        <button onclick="checkQuiz(this, false)">7</button>
+        <button onclick="checkQuiz(this, true)">9</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

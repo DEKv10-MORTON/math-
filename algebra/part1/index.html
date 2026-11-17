@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 2 (ตอนที่ 1): พหุนามและการแยกตัวประกอบขั้นสูง - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 2 (ตอนที่ 1)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📐 พีชคณิต (ตอนที่ 1)<br><span>พหุนามและการแยกตัวประกอบขั้นสูง</span></h1>
+      <p>ยกระดับทักษะพหุนามจากห้องเรียนสู่สนาม สอวน. ด้วยทฤษฎีบทเศษเหลือและการจัดรูปสมการขั้นเทพ</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ทฤษฎีบทเศษเหลือ -->
+    <section class="lesson-card">
+      <h2>1. ทฤษฎีบทเศษเหลือ (Remainder Theorem)</h2>
+      <p>ปกติเวลาเราหารพหุนามด้วยพหุนามดีกรีหนึ่ง เช่น \(x - c\) เราต้องตั้งหารยาวซึ่งเสียเวลามาก <strong>ทฤษฎีบทเศษเหลือ</strong> จะช่วยให้เราหาเศษจากการหารได้ทันทีโดยไม่ต้องหารเลยครับ!</p>
+
+      <div class="formula-box">
+        $$\text{เศษเหลือจากการหารพหุนาม } P(x) \text{ ด้วย } (x - c) \text{ จะเท่ากับ } P(c)$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องทฤษฎีบทเศษเหลือ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ทฤษฎีบทเศษเหลือ & ขั้นตอนวิธีการหาร</strong>
+          <p>เจาะลึกเทคนิคการทำโจทย์พหุนามระดับแข่งขัน (โดยช่อง WE BY THE BRAIN)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=aUfqVbJsMu8" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวโจทย์
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ ตัวอย่างการใช้งาน:</strong>
+          <p>ถ้าต้องการหาเศษเหลือเมื่อหาร \(P(x) = x^3 - 2x^2 + 5x - 7\) ด้วย \(x - 2\)</p>
+          <p class="sub-note" style="margin-top: 6px;">ให้แทนค่า \(x = 2\) ลงใน \(P(x)\):<br>\(P(2) = (2)^3 - 2(2)^2 + 5(2) - 7 = 8 - 8 + 10 - 7 = \mathbf{3}\)<br>ดังนั้นเศษเหลือคือ \(3\) ทันที!</p>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 กรณีตัวหารเป็น \(ax - b\):</strong>
+          <p>ถ้าหารด้วย \(ax - b\) ให้แทนค่า \(x = \frac{b}{a}\) นั่นคือเศษเหลือคือ \(P\left(\frac{b}{a}\right)\)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ทฤษฎีบทตัวประกอบ -->
+    <section class="lesson-card">
+      <h2>2. ทฤษฎีบทตัวประกอบ (Factor Theorem)</h2>
+      <p>ต่อยอดจากทฤษฎีบทเศษเหลือ ถ้าเราแทนค่าแล้วเศษเหลือเป็น \(0\) แปลว่าพหุนามนั้นหารลงตัวพอดีเป๊ะ กลายเป็นตัวประกอบทันที:</p>
+
+      <div class="formula-box">
+        $$(x - c) \text{ เป็นตัวประกอบของ } P(x) \iff P(c) = 0$$
+      </div>
+
+      <p style="margin-top: 14px;">นี่คืออาวุธหลักที่เราใช้แยกตัวประกอบพหุนามดีกรี 3 หรือดีกรี 4 ขึ้นไป โดยการเดาตัวประกอบ \(c\) จากตัวหารของพจน์ค่าคงที่ตัวสุดท้าย แล้วใช้การหารสังเคราะห์ลดดีกรีลงมาครับ!</p>
+    </section>
+
+    <!-- ส่วนที่ 3: ห้องทดลอง Interactive คำนวณเศษเหลือ -->
+    <section class="lesson-card">
+      <h2>3. 🧪 ห้องทดลอง: เครื่องคำนวณค่าพหุนามและเศษเหลืออัตโนมัติ</h2>
+      <p>ลองใส่สัมประสิทธิ์ของพหุนามดีกรี 3 ในรูป \(Ax^3 + Bx^2 + Cx + D\) และค่า \(c\) ที่ต้องการทดสอบหารด้วย \(x - c\):</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="polyA" value="1" placeholder="สัมประสิทธิ์ x^3">
+          <input type="number" id="polyB" value="-2" placeholder="สัมประสิทธิ์ x^2">
+          <input type="number" id="polyC" value="5" placeholder="สัมประสิทธิ์ x">
+          <input type="number" id="polyD" value="-7" placeholder="ค่าคงที่ D">
+        </div>
+        <div class="input-row" style="margin-top: 10px;">
+          <input type="number" id="valC" value="2" placeholder="หารด้วย x - c (ใส่ค่า c)">
+          <button onclick="runPolynomialTest()">คำนวณหาเศษเหลือ (P(c))</button>
+        </div>
+        <div id="poly-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>4. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ทฤษฎีบทเศษเหลือ</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">กำหนดให้ \(P(x) = x^3 + kx^2 - 5x + 6\) ถ้าหาร \(P(x)\) ด้วย \(x - 2\) แล้วเหลือเศษ \(12\) จงหาค่าของ \(k\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>จากทฤษฎีบทเศษเหลือ การหาร \(P(x)\) ด้วย \(x - 2\) จะเหลือเศษเท่ากับ \(P(2)\)</li>
+            <li>แทนค่า \(x = 2\) ลงใน \(P(x)\):
+              <br>\(P(2) = (2)^3 + k(2)^2 - 5(2) + 6\)
+              <br>\(P(2) = 8 + 4k - 10 + 6 = 4k + 4\)
+            </li>
+            <li>โจทย์กำหนดว่าเศษเหลือเท่ากับ \(12\) ดังนั้นจับเท่ากับ \(12\):
+              <br>\(4k + 4 = 12\)
+              <br>\(4k = 8 \implies \mathbf{k = 2}\)
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • แยกตัวประกอบดีกรี 3</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงแยกตัวประกอบของพหุนาม \(P(x) = x^3 - 6x^2 + 11x - 6\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>หาตัวประกอบที่เป็นไปได้ของพจน์ค่าคงที่ \(-6\) ซึ่งได้แก่ \(\pm 1, \pm 2, \pm 3, \pm 6\)</li>
+            <li>ลองแทนค่า \(x = 1\):
+              <br>\(P(1) = 1^3 - 6(1)^2 + 11(1) - 6 = 1 - 6 + 11 - 6 = 0\)
+            </li>
+            <li>เนื่องจาก \(P(1) = 0\) แสดงว่า \((x - 1)\) เป็นตัวประกอบหนึ่งของ \(P(x)\)</li>
+            <li>ใช้การหารสังเคราะห์ลดดีกรีด้วย \(1\):
+              <br>สัมประสิทธิ์: \(1, -6, 11, -6\) หารด้วย \(1\) จะได้ผลหารเป็นพหุนามดีกรีสอง: \(x^2 - 5x + 6\)
+            </li>
+            <li>แยกตัวประกอบพหุนามดีกรีสองต่อ: \(x^2 - 5x + 6 = (x - 2)(x - 3)\)</li>
+            <li><strong>สรุปคำตอบ:</strong> \(P(x) = (x - 1)(x - 2)(x - 3)\)</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ถ้าหารพหุนาม \(P(x) = x^3 - 3x^2 + x + 5\) ด้วย \(x + 1\) จะเหลือเศษเท่าไร?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">0</button>
+        <button onclick="checkQuiz(this, false)">2</button>
+        <button onclick="checkQuiz(this, true)">0 (เดี๋ยวนะ คำนวณใหม่สิ!)</button>
+        <button onclick="checkQuiz(this, false)">ตัวเลือกอื่นถูกต้อง</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

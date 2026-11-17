@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 1 (ตอนที่ 4): สมการไดโอแฟนไทน์เชิงเส้น - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 1 (ตอนที่ 4)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>🧩 ทฤษฎีจำนวน (ตอนที่ 4)<br><span>สมการไดโอแฟนไทน์เชิงเส้น (Linear Diophantine Equations)</span></h1>
+      <p>ถอดรหัสสมการตัวแปรสองตัวที่คำตอบต้องเป็น "จำนวนเต็ม" พร้อมเทคนิคการแก้สมการแบบเซียน สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: นิยามสมการไดโอแฟนไทน์ -->
+    <section class="lesson-card">
+      <h2>1. สมการไดโอแฟนไทน์เชิงเส้นคืออะไร?</h2>
+      <p>สมการไดโอแฟนไทน์ (Diophantine Equation) คือสมการพหุนามที่เราสนใจหาคำตอบที่เป็น <strong>จำนวนเต็ม (\(\mathbb{Z}\))</strong> เท่านั้น โดยรูปแบบมาตรฐานของสมการเชิงเส้นสองตัวแปรคือ:</p>
+
+      <div class="formula-box">
+        $$ax + by = c$$
+        <p class="sub-note">เมื่อ \(a, b, c\) เป็นจำนวนเต็มที่กำหนดให้ และ \(x, y\) เป็นจำนวนเต็มที่เราต้องหาคำตอบ</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องสมการไดโอแฟนไทน์ -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: การแก้สมการไดโอแฟนไทน์เชิงเส้น และบทพิสูจน์</strong>
+          <p>ศึกษาทฤษฎีบทและการตรวจสอบเงื่อนไขการมีคำตอบ (โดยช่อง Math and Life)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=4ntQlhk_NhY" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปอธิบาย
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ เงื่อนไขสำคัญที่ต้องเช็คก่อนทำ:</strong>
+          <p>สมการ \(ax + by = c\) จะมีคำตอบเป็นจำนวนเต็ม ก็ต่อเมื่อ <strong>\(\gcd(a, b)\) ต้องหาร \(c\) ลงตัวเป๊ะๆ!</strong></p>
+          <p class="sub-note" style="margin-top: 6px;">ถ้า ห.ร.ม. ของ \(a\) และ \(b\) หาร \(c\) ไม่ลงตัว แปลว่าสมการนี้ <strong>"ไม่มีคำตอบที่เป็นจำนวนเต็ม"</strong> ทันที</p>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 ตัวอย่างความต่าง:</strong>
+          <ul>
+            <li>\(2x + 4y = 5\) ➡️ ไม่มีคำตอบจำนวนเต็ม เพราะ \(\gcd(2,4) = 2\) แต่ \(2 \mid 5\) ไม่ลงตัว</li>
+            <li>\(2x + 4y = 6\) ➡️ มีคำตอบ เพราะ \(\gcd(2,4) = 2\) และ \(2 \mid 6\) ลงตัว</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ขั้นตอนการหาคำตอบทั่วไป -->
+    <section class="lesson-card">
+      <h2>2. สเต็ปการหาคำตอบทั่วไป (General Solutions)</h2>
+      <p>หากเราหาคำตอบเฉพาะตัวแรก (Particular Solution) ได้แล้ว สมมติให้เป็น \((x_0, y_0)\) เราจะสามารถสร้างคำตอบทั้งหมดบนโลกใบนี้ได้ด้วยสูตร:</p>
+
+      <div class="formula-box" style="font-size: 1.1rem; color: var(--accent);">
+        $$x = x_0 + \frac{b}{d} t$$
+        $$y = y_0 - \frac{a}{d} t$$
+        <p class="sub-note">เมื่อ \(d = \gcd(a, b)\) และ \(t\) เป็นจำนวนเต็มใดๆ (\(t \in \mathbb{Z}\))</p>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ห้องทดลอง Interactive สมการไดโอแฟนไทน์ -->
+    <section class="lesson-card">
+      <h2>3. 🧪 ห้องทดลอง: เครื่องมือตรวจสอบและหาคำตอบเบื้องต้น</h2>
+      <p>ลองใส่สัมประสิทธิ์ \(a, b, c\) ของสมการ \(ax + by = c\) แล้วระบบจะเช็คเงื่อนไขและคำนวณคำตอบให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="eqA" value="3" placeholder="ค่า a">
+          <input type="number" id="eqB" value="5" placeholder="ค่า b">
+          <input type="number" id="eqC" value="14" placeholder="ค่า c">
+          <button onclick="runDiophantine()">ตรวจสอบสมการ</button>
+        </div>
+        <div id="dio-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>4. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • ตรวจสอบเงื่อนไขคำตอบ</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงตรวจสอบว่าสมการ \(12x + 18y = 100\) มีคำตอบที่เป็นจำนวนเต็มหรือไม่?</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>เทียบรูปทั่วไป \(ax + by = c\) จะได้ \(a = 12, b = 18, c = 100\)</li>
+            <li>หา ห.ร.ม. ของ \(a\) และ \(b\): \(\gcd(12, 18) = 6\)</li>
+            <li>ตรวจสอบว่า ห.ร.ม. หาร \(c\) ลงตัวหรือไม่: ตรวจสอบว่า \(6 \mid 100\) หรือไม่?</li>
+            <li>เนื่องจาก \(100 \div 6 = 16\) เหลือเศษ \(4\) (หารไม่ลงตัว)</li>
+            <li><strong>สรุป:</strong> สมการนี้ <strong>ไม่มีคำตอบที่เป็นจำนวนเต็ม</strong> ครับ!</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • หาคำตอบจำนวนเต็มบวก</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาจำนวนคู่ลำดับของจำนวนเต็มบวก \((x, y)\) ทั้งหมดที่สอดคล้องกับสมการ \(5x + 7y = 111\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>ตรวจสอบเงื่อนไข: \(\gcd(5, 7) = 1\) และ \(1 \mid 111\) ลงตัว ดังนั้นมีคำตอบแน่นอน</li>
+            <li>หาคำตอบเฉพาะ (Particular Solution) โดยลองแทนค่าหรือจัดรูป:
+              <br>\(5x = 111 - 7y\) 
+              <br>มองหาค่า \(y\) ที่ทำให้ \(111 - 7y\) หารด้วย \(5\) ลงตัว เช่น ถ้า \(y = 3\) จะได้ \(111 - 21 = 90\) ซึ่ง \(90 \div 5 = 18\)
+              <br>ดังนั้นชุดคำตอบเริ่มต้นคือ \(x_0 = 18, y_0 = 3\)</li>
+            <li>เขียนคำตอบทั่วไปตามสูตร (\(d = 1, a = 5, b = 7\)):
+              <br>\(x = 18 + 7t\)
+              <br>\(y = 3 - 5t\) เมื่อ \(t \in \mathbb{Z}\)</li>
+            <li>เนื่องจากโจทย์ต้องการจำนวนเต็มบวก (\(x > 0\) และ \(y > 0\)):
+              <br>• \(18 + 7t > 0 \implies 7t > -18 \implies t > -\frac{18}{7}\) (\(t \ge -2\))
+              <br>• \(3 - 5t > 0 \implies 5t < 3 \implies t < \frac{3}{5}\) (\(t \le 0\))</li>
+            <li>ช่วงของค่า \(t\) ที่เป็นไปได้คือ \(-2 \le t \le 0\) ซึ่งมีค่า \(t = -2, -1, 0\) (รวม \(3\) ค่า)</li>
+            <li>แทนค่า \(t\) กลับไปจะได้ 3 คู่ลำดับ:
+              <br>• \(t = -2 \implies (4, 13)\)
+              <br>• \(t = -1 \implies (11, 8)\)
+              <br>• \(t = 0 \implies (18, 3)\)
+            </li>
+            <li><strong>สรุป:</strong> มีคำตอบที่เป็นจำนวนเต็มบวกทั้งหมด <strong>\(3\) คู่</strong></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>สมการในข้อใดต่อไปนี้ <strong>ไม่มี</strong> คำตอบที่เป็นจำนวนเต็ม?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">\(3x + 6y = 9\)</button>
+        <button onclick="checkQuiz(this, false)">\(4x + 10y = 14\)</button>
+        <button onclick="checkQuiz(this, true)">\(8x + 12y = 30\)</button>
+        <button onclick="checkQuiz(this, false)">\(5x + 11y = 1\)</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

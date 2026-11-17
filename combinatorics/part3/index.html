@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คอมบิเนททอริก (ตอนที่ 3): ทฤษฎีบททวินาม - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • คอมบิเนททอริก ตอนที่ 3</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📈 คอมบิเนททอริก (ตอนที่ 3)<br><span>ทฤษฎีบททวินาม (Binomial Theorem)</span></h1>
+      <p>เจาะลึกสูตรกระจายพจน์ สัมประสิทธิ์ทวินาม และเทคนิคหาพจน์ทั่วไปแบบเซียน สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: ทฤษฎีบททวินามและพจน์ทั่วไป -->
+    <section class="lesson-card">
+      <h2>1. ทฤษฎีบททวินามและพจน์ทั่วไป (General Term)</h2>
+      <p>สำหรับการกระจายพจน์ของรูปทั่วไป \( (x + y)^n \) เมื่อ \( n \) เป็นจำนวนเต็มบวก เราสามารถเขียนในรูปผล summation และสูตรพจน์ทั่วไปได้ดังนี้:</p>
+
+      <div class="formula-box">
+        $$ (x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k $$
+        <p class="sub-note" style="margin-top: 6px;">และสูตรพจน์ทั่วไปที่ \( r+1 \) (\( T_{r+1} \)) คือ: <strong>\( T_{r+1} = \binom{n}{r} x^{n-r} y^r \)</strong></p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องทฤษฎีบททวินาม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ทฤษฎีบททวินาม (หลักการนับเบื้องต้น)</strong>
+          <p>เข้าใจสูตรและการกระจายพจน์ทวินามอย่างรวดเร็ว (โดย พี่ปั้น SmartMathPro)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=LSXc9pcu0bE" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวทวินาม
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ สมบัติสำคัญของสัมประสิทธิ์ทวินาม:</strong>
+          <ul>
+            <li>สมบัติความสมมาตร: \( \binom{n}{r} = \binom{n}{n-r} \)</li>
+            <li>ผลรวมสัมประสิทธิ์ทั้งหมดหาได้จากการแทน \( x = 1, y = 1 \) จะได้ \( 2^n \)</li>
+            <li>ผลรวมสัมประสิทธิ์ตำแหน่งคี่เท่ากับผลรวมตำแหน่งคู่ คือ \( 2^{n-1} \)</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 สามเหลี่ยมปาสคาล (Pascal's Triangle):</strong>
+          <ul>
+            <li>ความสัมพันธ์ต่อเนื่อง: \( \binom{n}{r} + \binom{n}{r+1} = \binom{n+1}{r+1} \)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณพจน์ทวินาม -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณสัมประสิทธิ์และพจน์ทั่วไป</h2>
+      <p>ลองใส่ค่าพาวเวอร์ \( n \) และตำแหน่งพจน์ที่ต้องการ \( r+1 \) ของการกระจาย \( (x + y)^n \) ระบบจะคำนวณสัมประสิทธิ์ให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="binomN" value="6" placeholder="ค่ากำลัง n">
+          <input type="number" id="binomR" value="2" placeholder="พจน์ที่ r (เริ่มจาก 0)">
+          <button onclick="runBinomialCalc()">คำนวณสัมประสิทธิ์</button>
+        </div>
+        <div id="binom-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • การหาพจน์เฉพาะเจาะจง</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาสัมประสิทธิ์ของพจน์ที่ไม่มีตัวแปร \( x \) (พจน์ค่าคงที่) จากการกระจาย \( \left( x^2 + \frac{1}{x} \right)^9 \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>จากสูตรพจน์ทั่วไป \( T_{r+1} = \binom{n}{r} x^{n-r} y^r \) ให้แทนค่า \( n = 9, x = x^2 \) และ \( y = x^{-1} \):
+              <br>\( T_{r+1} = \binom{9}{r} (x^2)^{9-r} (x^{-1})^r \)
+            </li>
+            <li>จัดรูปเลขชี้กำลังของตัวแปร \( x \) ให้มารวมกัน:
+              <br>\( T_{r+1} = \binom{9}{r} x^{18 - 2r} x^{-r} = \binom{9}{r} x^{18 - 3r} \)
+            </li>
+            <li>เนื่องจากโจทย์ต้องการพจน์ที่ไม่มีตัวแปร \( x \) (แปลว่าเลขชี้กำลังของ \( x \) ต้องเท่ากับ \( 0 \)):
+              <br>\( 18 - 3r = 0 \implies 3r = 18 \implies r = 6 \)
+            </li>
+            <li>แทนค่า \( r = 6 \) ลงในสัมประสิทธิ์:
+              <br>\( \text{สัมประสิทธิ์} = \binom{9}{6} = \binom{9}{3} = \frac{9 \times 8 \times 7}{3 \times 2 \times 1} = \mathbf{84} \)
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • เอกลักษณ์สัมประสิทธิ์ทวินาม</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาค่าของผลบวก: \( \binom{n}{0} + 2\binom{n}{1} + 3\binom{n}{2} + \dots + (n+1)\binom{n}{n} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>เขียนอนุกรมในรูปmation: \( \sum_{r=0}^{n} (r + 1)\binom{n}{r} \)</li>
+            <li>กระจายพจน์คูณเข้าไป:
+              <br>\( \sum_{r=0}^{n} r\binom{n}{r} + \sum_{r=0}^{n} \binom{n}{r} \)
+            </li>
+            <li>ใช้สมบัติอนุกรมมาตรฐานของสัมประสิทธิ์ทวินาม:
+              <br>• อนุกรมหลัง \( \sum_{r=0}^{n} \binom{n}{r} = 2^n \)
+              <br>• อนุกรมหน้าแปลงรูปได้จากเอกลักษณ์ \( r\binom{n}{r} = n\binom{n-1}{r-1} \) ทำให้ \( \sum_{r=0}^{n} r\binom{n}{r} = n \cdot 2^{n-1} \)
+            </li>
+            <li>รวมผลลัพธ์ทั้งสองส่วนเข้าด้วยกัน:
+              <br>\( n \cdot 2^{n-1} + 2^n = 2^{n-1}(n + 2) \) เป็นคำตอบสุดท้าย
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ผลรวมของสัมประสิทธิ์ทั้งหมดจากการกระจายพจน์ \( (2x - 3)^5 \) มีค่าเท่าใด?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">-1</button>
+        <button onclick="checkQuiz(this, true)">1</button>
+        <button onclick="checkQuiz(this, false)">32</button>
+        <button onclick="checkQuiz(this, false)">243</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

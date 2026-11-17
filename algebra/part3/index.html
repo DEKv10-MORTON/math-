@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 2 (ตอนที่ 3): เศษส่วนพหุนามและสมการเศษส่วน - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 2 (ตอนที่ 3)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>➗ พีชคณิต (ตอนที่ 3)<br><span>เศษส่วนพหุนามและสมการเศษส่วน</span></h1>
+      <p>พิชิตโจทย์เศษส่วนพหุนามระเบิดสมอง และเทคนิคการแปลงร่างสมการเศษส่วนให้กลายเป็นเรื่องง่าย</p>
+    </section>
+
+    <!-- ส่วนที่ 1: หลักการจัดการเศษส่วนพหุนาม -->
+    <section class="lesson-card">
+      <h2>1. หลักการสำคัญของเศษส่วนพหุนาม</h2>
+      <p>เศษส่วนพหุนาม (Rational Expression) คือนิพจน์ที่อยู่ในรูปส่วนของพหุนาม \( \frac{P(x)}{Q(x)} \) เมื่อ \( Q(x) \neq 0 \) โดยมีกฎเหล็กที่ต้องระวังสูงสุดคือ:</p>
+
+      <div class="formula-box">
+        $$ \text{ตัวส่วนห้ามเป็นศูนย์เด็ดขาด! (Domain Restriction)} $$
+        <p class="sub-note" style="margin-top: 6px;">ก่อนทำข้อสอบหรือตัดทอนตัวร่วมทุกครั้ง ต้องหาค่า \( x \) ที่ทำให้ตัวส่วนเป็น \( 0 \) ออกจากเซตคำตอบเสมอ</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องสมการเศษส่วนพหุนาม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: สมการเศษส่วนพหุนาม & เทคนิคแปลงร่างตัวแปร</strong>
+          <p>เจาะลึกเทคนิคการแก้โจทย์สมการเศษส่วนระดับแข่งขัน (โดยช่อง WE BY THE BRAIN)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=X5pyMvAju_0" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวโจทย์
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ การบวก-ลบ และคูณ-หาร:</strong>
+          <ul>
+            <li><strong>คูณ/หาร:</strong> แยกตัวประกอบเศษและส่วนให้สุด แล้วจับตัดทอนไขว้กันก่อนคูณ</li>
+            <li><strong>บวก/ลบ:</strong> ต้องทำตัวส่วนให้เท่ากัน (หา ค.ร.น. ของพหุนาม) แล้วจึงนำตัวเศษมาบวกหรือลบกัน</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>⚠️ ข้อควรระวังยอดฮิต:</strong>
+          <ul>
+            <li>ห้ามตัดทอนพจน์ที่เชื่อมด้วยเครื่องหมายบวกหรือลบเด็ดขาด! (เช่น \( \frac{x + 3}{x + 5} \neq \frac{3}{5} \) ต้องตัดทั้งก้อนเท่านั้น)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive ลดทอนเศษส่วนพหุนาม -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องมือแยกตัวประกอบและเช็คเงื่อนไขตัวส่วน</h2>
+      <p>ลองทดสอบป้อนค่าสัมประสิทธิ์ของตัวเศษและตัวส่วน แล้วระบบจะคำนวณและตรวจสอบเงื่อนไขตัวส่วนให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="numCoeff" value="1" placeholder="สัมประสิทธิ์ตัวเศษ x^2">
+          <input type="number" id="numConst" value="-4" placeholder="ค่าคงที่ตัวเศษ">
+          <input type="number" id="denCoeff" value="1" placeholder="สัมประสิทธิ์ตัวส่วน x">
+          <input type="number" id="denConst" value="-2" placeholder="ค่าคงที่ตัวส่วน">
+          <button onclick="runRationalCheck()">วิเคราะห์เศษส่วน</button>
+        </div>
+        <div id="rational-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • การลดทอนพหุนามซ้อน</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงทำให้พหุนามต่อไปนี้อยู่ในรูปอย่างง่าย: \( \frac{x^2 - 9}{x^2 - 5x + 6} \div \frac{x + 3}{x - 2} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>แยกตัวประกอบทุกพหุนามให้อยู่ในรูปผลคูณ:
+              <br>• ตัวเศษก้อนแรก: \( x^2 - 9 = (x - 3)(x + 3) \)
+              <br>• ตัวส่วนก้อนแรก: \( x^2 - 5x + 6 = (x - 2)(x - 3) \)
+              <br>• ตัวเศษก้อนที่สอง: \( x + 3 \)
+              <br>• ตัวส่วนก้อนที่สอง: \( x - 2 \)
+            </li>
+            <li>เปลี่ยนเครื่องหมายหารเป็นคูณ แล้วกลับเศษเป็นส่วนของก้อนหลัง:
+              <br>\( \frac{(x - 3)(x + 3)}{(x - 2)(x - 3)} \times \frac{x - 2}{x + 3} \)
+            </li>
+            <li>ทำการตัดทอนพจน์ที่เหมือนกันทั้งเศษและส่วน (\( (x-3), (x+3), (x-2) \)):
+              <br>ผลลัพธ์ที่เหลือคือ <strong>\( 1 \)</strong> (ภายใต้เงื่อนไข \( x \neq 2, 3, -3 \))</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • สมการเศษส่วนพหุนาม</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาเซตคำตอบของสมการ: \( \frac{2}{x - 1} + \frac{3}{x + 1} = \frac{5}{x} \)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>เช็คเงื่อนไขตัวส่วนห้ามเป็นศูนย์: \( x \neq 0, 1, -1 \)</li>
+            <li>นำ ค.ร.น. ของตัวส่วนทั้งหมด ซึ่งก็คือ \( x(x - 1)(x + 1) \) คูณตลอดทั้งสมการเพื่อกำจัดเศษส่วน:
+              <br>\( 2x(x + 1) + 3x(x - 1) = 5(x - 1)(x + 1) \)
+            </li>
+            <li>กระจายพจน์และจัดรูปสมการ:
+              <br>\( (2x^2 + 2x) + (3x^2 - 3x) = 5(x^2 - 1) \)
+              <br>\( 5x^2 - x = 5x^2 - 5 \)
+            </li>
+            <li>หักล้างพจน์ \( 5x^2 \) ทั้งสองข้าง:
+              <br>\( -x = -5 \implies \mathbf{x = 5} \)
+            </li>
+            <li>ตรวจสอบคำตอบกับเงื่อนไข: \( x = 5 \) ไม่ทำให้ตัวส่วนเป็นศูนย์ ดังนั้นใช้ได้จริง</li>
+            <li><strong>สรุป:</strong> เซตคำตอบคือ <strong>\( \{5\} \)</strong></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>ผลบวกของคำตอบทั้งหมดของสมการ \( \frac{x}{x-2} + \frac{1}{x} = \frac{2}{x-2} \) มีค่าเท่าไร?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">1</button>
+        <button onclick="checkQuiz(this, true)">-1 (คำตอบคือ -1)</button>
+        <button onclick="checkQuiz(this, false)">2</button>
+        <button onclick="checkQuiz(this, false)">3</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

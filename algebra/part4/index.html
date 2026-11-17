@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทที่ 2 (ตอนที่ 4): อสมการเชิงเส้นและอสมการพหุนาม - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • บทที่ 2 (ตอนที่ 4)</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📈 พีชคณิต (ตอนที่ 4)<br><span>อสมการเชิงเส้นและอสมการพหุนาม</span></h1>
+      <p>พิชิตช่วงคำตอบอสมการขั้นสูงด้วยเทคนิคเส้นจำนวนและวิธี Wavy-Line แบบเซียน สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: หลักการแก้พหุนามด้วยวิธี Wavy-Line Method -->
+    <section class="lesson-card">
+      <h2>1. เทคนิคเส้นจำนวน (Wavy-Line Method)</h2>
+      <p>เมื่อเจออสมการพหุนามดีกรีสูง เช่น \((x - 1)(x - 2)(x - 3) > 0\)
+        เรามีขั้นตอนการหาช่วงคำตอบที่รวดเร็วและแม่นยำดังนี้:</p>
+
+      <div class="formula-box">
+        $$\text{ขั้นตอน Wavy-Line: แยกตัวประกอบ ➔ ลงจุดบนเส้นจำนวน ➔ วาดคลื่นจากขวาไปซ้าย (+ เริ่มจากขวาบน)}$$
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่องอสมการพหุนาม -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: สรุปอสมการพหุนาม & เทคนิค Wavy-Line Method</strong>
+          <p>เจาะลึกการแก้ช่วงคำตอบอสมการดีกรีสูงระดับแข่งขัน (โดยช่อง TUENONG)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=x17UVfWJ1O0" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวโจทย์
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ กฎเหล็กในการพิจารณาเครื่องหมาย:</strong>
+          <ul>
+            <li>สัมประสิทธิ์หน้า \(x\) ทุกวงเล็บ <strong>ต้องเป็นบวก (+) เสมอ</strong>
+              ถ้าติดลบต้องดึงเครื่องหมายลบออกก่อน</li>
+            <li>เส้นคลื่นจะเริ่มวาดจาก **ขวาบนลงล่างสลับบวก-ลบ (+, -, +, -)** เสมอ</li>
+            <li>ถ้าเจอรากซ้ำคู่ (เช่น \((x-2)^2\)) เส้นคลื่นจะไม่ตัดแกน (เด้งกลับทางเดิม)</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>⚠️ ข้อควรระวังในอสมการเศษส่วน:</strong>
+          <ul>
+            <li>ถ้าเป็นอสมการเศษส่วน \(\frac{P(x)}{Q(x)} > 0\) ห้ามนำตัวส่วนคูณไขว้เด็ดขาด
+              เพราะไม่รู้ว่าตัวส่วนเป็นบวกหรือลบ ให้ใช้สมบัติ \(\frac{P(x)}{Q(x)} > 0 \iff P(x)Q(x) > 0\) แทน!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive ตรวจสอบช่วงคำตอบอสมการ -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องมือจำลองช่วงคำตอบอสมการกำลังสอง</h2>
+      <p>ลองใส่ค่าราก \(r_1\) และ \(r_2\) (สมมติให้ \(r_1 < r_2\)) ของอสมการในรูป \((x - r_1)(x - r_2) < 0\):</p>
+
+          <div class="simulator-box">
+            <div class="input-row">
+              <input type="number" id="rootA" value="2" placeholder="รากที่ 1 (r1)">
+              <input type="number" id="rootB" value="5" placeholder="รากที่ 2 (r2)">
+              <button onclick="runInequalityTest()">วิเคราะห์ช่วงคำตอบ</button>
+            </div>
+            <div id="ineq-result" class="steps-output"></div>
+          </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • อสมการพหุนาม</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาเซตคำตอบของอสมการ: \(x^2 - 5x + 6 \leq 0\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>แยกตัวประกอบพหุนามทางซ้ายมือ:
+              <br>\((x - 2)(x - 3) \leq 0\)
+            </li>
+            <li>หาจุดวิกฤตบนเส้นจำนวนโดยให้แต่ละวงเล็บเท่ากับศูนย์ จะได้จุด \(x = 2\) และ \(x = 3\)</li>
+            <li>วาดเส้นจำนวนและลงจุด \(2\) กับ \(3\) (ใช้จุดทึบเพราะมีเครื่องหมาย \(\leq\))</li>
+            <li>ใส่เครื่องหมายช่วงจากขวาไปซ้ายด้วย \(+, -, +\):
+              <br>• ช่วง \(x > 3\): เป็นบวก (+)
+              <br>• ช่วง \(2 \leq x \leq 3\): เป็นลบ (-)
+              <br>• ช่วง \(x < 2\): เป็นบวก (+) </li>
+            <li>เนื่องจากโจทย์ต้องการช่วงน้อยกว่าหรือเท่ากับศูนย์ (\(\leq 0\)) จึงเลือกช่วงที่เป็นลบ (-)</li>
+            <li><strong>สรุปเซตคำตอบ:</strong> ช่วงปิด <strong>\([2, 3]\)</strong> หรือเขียนเป็นเซตคือ \(\{x \mid 2 \leq
+              x \leq 3\}\)</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • อสมการเศษส่วนพหุนาม</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">จงหาเซตคำตอบของอสมการ: \(\frac{x - 1}{x + 2} > 0\)</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>แปลงอสมการเศษส่วนให้อยู่ในรูปผลคูณด้วยสมบัติ \(\frac{P(x)}{Q(x)} > 0 \iff P(x)Q(x) > 0\):
+              <br>\((x - 1)(x + 2) > 0\) (โดยมีเงื่อนไขตัวส่วนห้ามเป็นศูนย์คือ \(x \neq -2\))
+            </li>
+            <li>หาจุดวิกฤตบนเส้นจำนวน: \(x = 1\) และ \(x = -2\)</li>
+            <li>ลงจุดบนเส้นจำนวน (ใช้จุดโปร่งเพราะไม่มีเครื่องหมายเท่ากับ และตัวส่วนห้ามเป็นศูนย์เด็ดขาด)</li>
+            <li>ใส่เครื่องหมายช่วงจากขวาไปซ้ายด้วย \(+, -, +\):
+              <br>• ช่วง \(x > 1\): เป็นบวก (+)
+              <br>• ช่วง \(-2 < x < 1\): เป็นลบ (-) <br>• ช่วง \(x < -2\): เป็นบวก (+) </li>
+            <li>เนื่องจากโจทย์ต้องการช่วงมากกว่าศูนย์ (\(> 0\)) จึงเลือกช่วงที่เป็นบวก (+)</li>
+            <li><strong>สรุปเซตคำตอบ:</strong> \((-\infty, -2) \cup (1, \infty)\)</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>เซตคำตอบของอสมการ \(x^2 - 4 > 0\) คือช่วงใด?</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">\([-2, 2]\)</button>
+        <button onclick="checkQuiz(this, false)">\((-2, 2)\)</button>
+        <button onclick="checkQuiz(this, true)">\((-\infty, -2) \cup (2, \infty)\)</button>
+        <button onclick="checkQuiz(this, false)">\(\emptyset\)</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

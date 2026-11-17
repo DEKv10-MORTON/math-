@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คอมบิเนททอริก (ตอนที่ 4): หลักการเพิ่ม-ลด - Dek Morton Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- โหลด MathJax สำหรับแสดงสมการคณิตศาสตร์ -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Navbar ด้านบน -->
+  <header class="top-bar">
+    <div class="brand">DEK <span>MORTON STUDIO</span></div>
+    <div class="badge">สอวน. คณิตศาสตร์ • คอมบิเนททอริก ตอนที่ 4</div>
+  </header>
+
+  <main class="container">
+    <!-- ส่วนหัวบทเรียน -->
+    <section class="hero-card">
+      <h1>📊 คอมบิเนททอริก (ตอนที่ 4)<br><span>หลักการเพิ่ม-ลด (Inclusion-Exclusion Principle)</span></h1>
+      <p>พิชิตโจทย์นับจำนวนเซตที่ทับซ้อนกันและการจัดเรียงแบบเดอเรนจ์เมนต์ (Derangement) ฉบับ สอวน.</p>
+    </section>
+
+    <!-- ส่วนที่ 1: หลักการเพิ่ม-ลด (Inclusion-Exclusion) -->
+    <section class="lesson-card">
+      <h2>1. กฎการเพิ่มเข้าและตัดออก (Inclusion-Exclusion Principle)</h2>
+      <p>เมื่อเราต้องการหาขนาดของยูเนียนของเซตจำกัดหลายๆ เซต หากนำขนาดแต่ละเซมาบวกกันตรงๆ จะเกิดการนับซ้ำ เราจึงต้องใช้หลักการเพิ่ม-ลดดังนี้:</p>
+
+      <div class="formula-box">
+        $$\vert{}A \cup B \cup C\vert{} = \vert{}A\vert{} + \vert{}B\vert{} + \vert{}C\vert{} - (\vert{}A \cap B\vert{} + \vert{}A \cap C\vert{} + \vert{}B \cap C\vert{}) + \vert{}A \cap B \cap C\vert{}$$
+        <p class="sub-note" style="margin-top: 6px;">หลักการคือ: บวกเดี่ยว ➔ ลบกู้ ➔ บวกตอง สลับเครื่องหมายกันไปเรื่อยๆ</p>
+      </div>
+
+      <!-- ปุ่มกดดูคลิป YouTube เพิ่มความเข้าใจเรื่อง Inclusion-Exclusion -->
+      <div class="video-resource-box">
+        <div class="video-resource-text">
+          <strong>📺 คลิปติวแนะนำ: ตัวอย่างโจทย์ กฎการเพิ่มเข้าตัดออก (Inclusion Exclusion Principle)</strong>
+          <p>เจาะลึกวิธีแก้โจทย์นับจำนวนที่ซับซ้อนด้วยหลักการเพิ่ม-ลด (โดยช่อง Math and Life)</p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=w7GK3khJrzQ" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          ▶ ไปดูคลิปติวเพิ่ม-ลด
+        </a>
+      </div>
+
+      <div class="example-grid">
+        <div class="ex-item good">
+          <strong>✅ การประยุกต์ใช้ในโจทย์ สอวน.:</strong>
+          <ul>
+            <li>หาจำนวนเต็มระหว่าง 1 ถึง 1000 ที่ไม่หารด้วย 2, 3 และ 5 ลงตัว</li>
+            <li>โจทย์การจัดเรียงสิ่งของไม่ให้เข้าที่เดิมเลย (Derangements)</li>
+          </ul>
+        </div>
+        <div class="ex-item bad">
+          <strong>💡 สูตรเดอเรนจ์เมนต์ (Derangement - \(D_n\)):</strong>
+          <ul>
+            <li>จำนวนวิธีสลับสิ่งของ \(n\) ชิ้น โดยไม่มีชิ้นไหนอยู่ตรงตำแหน่งเดิมเลย:</li>
+            <li>\(D_n = n! \left( 1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \dots + \frac{(-1)^n}{n!} \right)\)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: ห้องทดลอง Interactive คำนวณยูเนียน 3 เซต -->
+    <section class="lesson-card">
+      <h2>2. 🧪 ห้องทดลอง: เครื่องคำนวณยูเนียน 3 เซต (Inclusion-Exclusion Calculator)</h2>
+      <p>ลองใส่ขนาดของเซตเดี่ยว เซตอินเตอร์เซกชันคู่ และอินเตอร์เซกชัน 3 เซต ระบบจะคำนวณขนาดของยูเนียนตามหลักการเพิ่ม-ลดให้ทันที:</p>
+      
+      <div class="simulator-box">
+        <div class="input-row">
+          <input type="number" id="setA" value="50" placeholder="|A|">
+          <input type="number" id="setB" value="40" placeholder="|B|">
+          <input type="number" id="setC" value="30" placeholder="|C|">
+        </div>
+        <div class="input-row" style="margin-top: 10px;">
+          <input type="number" id="ab" value="15" placeholder="|A ∩ B|">
+          <input type="number" id="ac" value="10" placeholder="|A ∩ C|">
+          <input type="number" id="bc" value="12" placeholder="|B ∩ C|">
+          <input type="number" id="abc" value="5" placeholder="|A ∩ B ∩ C|">
+        </div>
+        <div class="input-row" style="margin-top: 10px;">
+          <button onclick="runInclusionExclusion()" style="flex: 1;">คำนวณขนาดของยูเนียน (|A ∪ B ∪ C|)</button>
+        </div>
+        <div id="ie-result" class="steps-output"></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ตะลุยโจทย์ สอวน. -->
+    <section class="lesson-card">
+      <h2>3. ตะลุยโจทย์แนวข้อสอบ สอวน.</h2>
+
+      <!-- โจทย์ข้อ 1 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag easy">ระดับพื้นฐาน • หลักการเพิ่ม-ลด</span>
+          <h4>โจทย์ข้อที่ 1</h4>
+        </div>
+        <p class="prob-text">จงหาจำนวนเต็มบวกตั้งแต่ \(1\) ถึง \(300\) ที่ <strong>ไม่หารด้วย</strong> \(2, 3\) หรือ \(5\) ลงตัวเลย</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol1')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol1" class="solution-content">
+          <ol>
+            <li>ให้เอกภพสัมพัทธ์ \(U = 300\) และให้ \(A, B, C\) แทนเซตของจำนวนเต็มตั้งแต่ 1 ถึง 300 ที่หารด้วย \(2, 3\) และ \(5\) ลงตัวตามลำดับ</li>
+            <li>หาขนาดของแต่ละเซตเดี่ยว:
+              <br>• \(\vert{}A\vert{} = \lfloor 300/2 \rfloor = 150\)
+              <br>• \(\vert{}B\vert{} = \lfloor 300/3 \rfloor = 100\)
+              <br>• \(\vert{}C\vert{} = \lfloor 300/5 \rfloor = 60\)
+            </li>
+            <li>หาขนาดของอินเตอร์เซกชันคู่ (หารด้วย ค.ร.น. ลงตัว):
+              <br>• \(\vert{}A \cap B\vert{} = \lfloor 300/6 \rfloor = 50\)
+              <br>• \(\vert{}A \cap C\vert{} = \lfloor 300/10 \rfloor = 30\)
+              <br>• \(\vert{}B \cap C\vert{} = \lfloor 300/15 \rfloor = 20\)
+            </li>
+            <li>หาขนาดของอินเตอร์เซกชันทั้งสาม:
+              <br>• \(\vert{}A \cap B \cap C\vert{} = \lfloor 300/30 \rfloor = 10\)
+            </li>
+            <li>แทนค่าในสูตรยูเนียน \(\vert{}A \cup B \cup C\vert{}\):
+              <br>\(150 + 100 + 60 - (50 + 30 + 20) + 10 = 320 - 100 + 10 = 230\) จำนวนที่หารด้วย 2, 3 หรือ 5 ลงตัว</li>
+            <li>จำนวนที่ไม่หารด้วยจำนวนเหล่านี้เลย = \(300 - 230 = \mathbf{70}\) จำนวน</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- โจทย์ข้อ 2 -->
+      <div class="problem-box">
+        <div class="prob-header">
+          <span class="level-tag hard">ระดับ สอวน. ค่าย 1 • Derangement (เดอเรนจ์เมนต์)</span>
+          <h4>โจทย์ข้อที่ 2</h4>
+        </div>
+        <p class="prob-text">มีจดหมาย 4 ฉบับและซองจดหมายที่จ่าหน้าซองไว้แล้ว 4 ซองไม่ซ้ำกัน ถ้าสุ่มใส่จดหมายลงในซองโดยไม่มีจดหมายฉบับใดใส่ถูกซองเดิมเลย จะมีวิธีใส่กี่วิธี (\(D_4\))</p>
+        <button class="toggle-btn" onclick="toggleSolution('sol2')">💡 กดเพื่อดูวิธีคิดทีละบรรทัด</button>
+        <div id="sol2" class="solution-content">
+          <ol>
+            <li>ข้อนี้คือโจทย์ Derangement ของสิ่งของ 4 ชิ้น (\(n = 4\))</li>
+            <li>ใช้สูตรเดอเรนจ์เมนต์:
+              <br>\(D_4 = 4! \left( 1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} \right)\)
+            </li>
+            <li>แทนค่าแฟกทอเรียลแต่ละพจน์:
+              <br>\(D_4 = 24 \left( 1 - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24} \right)\)
+            </li>
+            <li>กระจาย 24 เข้าไปคูณแต่ละพจน์:
+              <br>\(D_4 = 24(0) + 24\left(\frac{1}{2}\right) - 24\left(\frac{1}{6}\right) + 24\left(\frac{1}{24}\right)\)
+              <br>\(D_4 = 0 + 12 - 4 + 1 = \mathbf{9}\) วิธี</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: มินิควิซ -->
+    <section class="lesson-card quiz-card">
+      <h2>🎯 มินิควิซ: ทดสอบความเข้าใจ</h2>
+      <p>กำหนดให้ \(\vert{}A\vert{} = 20, \vert{}B\vert{} = 25\) และ \(\vert{}A \cap B\vert{} = 8\) จงหาขนาดของยูเนียน \(\vert{}A \cup B\) ตามหลักการเพิ่ม-ลด</p>
+      <div class="quiz-options">
+        <button onclick="checkQuiz(this, false)">30</button>
+        <button onclick="checkQuiz(this, true)">37</button>
+        <button onclick="checkQuiz(this, false)">45</button>
+        <button onclick="checkQuiz(this, false)">53</button>
+      </div>
+      <div id="quiz-feedback" class="feedback-text"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
